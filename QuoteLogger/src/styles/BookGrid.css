@@ -1,0 +1,27 @@
+.book-grid {
+  display: grid;
+  /* let columns grow to fill available space while keeping a reasonable minimum */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  padding: 1.25rem 1.5rem;
+  background: #d9cbbd;
+  border-radius: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1400px; /* prevents content from stretching too wide */
+  margin: 0 auto; /* center the grid */
+}
+
+/* Adjust spacing for narrow viewports so items don't overflow */
+@media (max-width: 900px) {
+  .book-grid {
+    padding: 1rem;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

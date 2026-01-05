@@ -1,0 +1,17 @@
+.home {
+  padding: 2rem;
+}
+
+.home-search-area {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.home-search-area h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.home-popular {
+  margin-top: 3rem;
+}
