@@ -1,7 +1,7 @@
 .book-grid {
   display: grid;
-  /* let columns grow to fill available space while keeping a reasonable minimum */
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  /* fixed column width so cards don't stretch when there are few items */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
   gap: 18px;
   padding: 1.25rem 1.5rem;
   background: #d9cbbd;
@@ -10,6 +10,7 @@
   width: 100%;
   max-width: 1400px; /* prevents content from stretching too wide */
   margin: 0 auto; /* center the grid */
+  justify-content: center; /* center the fixed-width items */
 }
 
 /* Adjust spacing for narrow viewports so items don't overflow */

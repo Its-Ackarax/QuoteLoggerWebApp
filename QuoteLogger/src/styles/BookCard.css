@@ -48,26 +48,60 @@
 
 .book-overlay {
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.8)
-  );
-  opacity: 0;
-  transition: opacity 0.2s;
+  bottom: 8px; /* center at bottom of cover */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 1rem;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* avoid blocking clicks when overlay hidden */
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  padding: 0 12px;
 }
 
 .book-card:hover .book-overlay {
   opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
+
+.add-book-btn,
+.add-quote-btn {
+  background: rgba(255,255,255,0.98);
+  color: #111;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+  min-width: 160px; /* consistent button width */
+  text-align: center;
+}
+
+.add-book-btn.saved {
+  background: #e5f7ea;
+  color: #0a7b3d;
+}
+
+.add-book-btn:hover,
+.add-quote-btn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 420px) {
+  .add-book-btn,
+  .add-quote-btn {
+    min-width: 120px;
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+}
+
 
 .favorite-btn {
   position: absolute;
@@ -135,6 +169,7 @@
 /* responsive: smaller covers on narrow screens */
 @media (max-width: 600px) {
   .book-cover {
-    height: 180px;
+    max-height: 260px; /* reduce max height so covers remain proportional on small screens */
   }
+  .book-card { min-height: 320px; }
 }

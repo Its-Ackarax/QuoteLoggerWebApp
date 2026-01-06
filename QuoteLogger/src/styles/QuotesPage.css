@@ -1,0 +1,199 @@
+.quotes-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: calc(100vh - 80px); /* adjust for header */
+}
+
+/* LEFT SIDEBAR */
+.quotes-sidebar {
+  border-right: 1px solid #e5e5e5;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.quotes-sidebar h2 {
+  margin-bottom: 1rem;
+}
+
+.quotes-sidebar p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0 0 12px 0;
+}
+
+.quotes-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quotes-sidebar li {
+  padding: 0.75rem;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.quotes-sidebar li:hover {
+  background: #f4f4f4;
+}
+
+.quotes-sidebar li.active {
+  background: #eaeaea;
+}
+
+.quotes-sidebar span {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.book-list-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.book-quote-count {
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: #444;
+}
+
+/* RIGHT PANEL */
+.quotes-panel {
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.quotes-panel p {
+  color: #666;
+  font-size: 0.98rem;
+  margin: 0;
+}
+
+.quotes-list {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* QUOTE CARD */
+.quote-card {
+  background: #f9f9f9;
+  padding: 1.25rem;
+  border-radius: 10px;
+}
+
+.quote-card blockquote {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.quote-page {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.quote-reflection {
+  margin-top: 0.75rem;
+  border-left: 3px solid #ccc;
+  padding-left: 0.75rem;
+  color: #555;
+}
+
+.quotes-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.title-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.author-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-name {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.add-quote-inline {
+  background: #4b9bff;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .author-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .add-quote-inline { align-self: flex-start; }
+}
+/* keep the old action style available if needed elsewhere */
+.quotes-panel-actions .primary {
+  background: #4b9bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .title-row { gap: 8px; }
+  .add-quote-inline { padding: 6px 8px; font-size: 0.9rem; }
+}
+
+.quote-form {
+  margin: 12px 0 18px 0;
+  background: #fafafa;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quote-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+.quote-form textarea { min-height: 80px; }
+
+.quote-form-actions .primary {
+  background: #22c55e;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.quotes-list { display: flex; flex-direction: column; gap: 10px; }
+
+.quote-card { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+
+.quote-card blockquote { margin: 0 0 8px 0; }
+
+.quote-page { font-size: 0.85rem; color: #666; }
+
+.quote-reflection { font-size: 0.9rem; color: #333; }

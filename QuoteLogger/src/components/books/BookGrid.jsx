@@ -7,7 +7,13 @@ function BookGrid({ books }) {
   }
 
   // show up to 15 books so grid forms 3 rows x 5 columns when possible
-  const displayBooks = books.slice(0, 15);
+  const displayBooks = [...books]
+    .sort((a, b) => {
+      const t1 = (a.title || "").toString();
+      const t2 = (b.title || "").toString();
+      return t1.localeCompare(t2, undefined, { sensitivity: "base" });
+    })
+    .slice(0, 15);
 
   return (
     <div className="book-grid">

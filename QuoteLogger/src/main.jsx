@@ -5,17 +5,23 @@ import App from './App.jsx'
 import HomePage from "./pages/HomePage";
 import BooksPage from "./pages/BooksPage";
 import QuotesPage from "./pages/QuotesPage";
+import { BooksProvider } from "./context/BooksContext";
+import { QuotesProvider } from "./context/QuotesContext";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route element={<App/>}>
-          <Route path="/" element={<HomePage/>} />
-          <Route path="/books" element={<BooksPage/>} />
-          <Route path="/quotes" element={<QuotesPage/>} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </StrictMode>,
+    <BooksProvider>
+      <QuotesProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<App/>}>
+              <Route path="/" element={<HomePage/>} />
+              <Route path="/books" element={<BooksPage/>} />
+              <Route path="/quotes" element={<QuotesPage/>} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </QuotesProvider>
+    </BooksProvider>
+  </StrictMode>
 )
