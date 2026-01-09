@@ -60,7 +60,7 @@ function HomePage() {
       </section>
 
       <section className="home-popular">
-        <h2>{hasSearched ? "Search Results" : "Popular Books"}</h2>
+        <h2>{hasSearched ? "Search Results:" : "Popular Books:"}</h2>
 
         {loading ? (
           <p>Loading...</p>

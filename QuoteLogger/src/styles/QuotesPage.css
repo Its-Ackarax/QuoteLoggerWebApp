@@ -2,23 +2,29 @@
   display: grid;
   grid-template-columns: 280px 1fr;
   height: calc(100vh - 80px); /* adjust for header */
+  background: #e0ddd8; /* darker muted beige background */
 }
 
 /* LEFT SIDEBAR */
 .quotes-sidebar {
-  border-right: 1px solid #e5e5e5;
+  border-right: 1px solid #c9c4bb;
   padding: 1.5rem;
   overflow-y: auto;
+  background: #f5f3f0; /* light beige */
 }
 
 .quotes-sidebar h2 {
   margin-bottom: 1rem;
+  color: #2a2a2a; /* dark grey */
+  font-family: 'Rosarivo', serif;
+  font-weight: 400;
 }
 
 .quotes-sidebar p {
   font-size: 0.95rem;
-  color: #666;
+  color: #2a2a2a; /* dark grey */
   margin: 0 0 12px 0;
+  font-family: 'Rosarivo', serif;
 }
 
 .quotes-sidebar ul {
@@ -31,20 +37,23 @@
   cursor: pointer;
   border-radius: 6px;
   margin-bottom: 0.5rem;
+  color: #2a2a2a; /* dark grey */
+  font-family: 'Rosarivo', serif;
 }
 
 .quotes-sidebar li:hover {
-  background: #f4f4f4;
+  background: #ede9e3;
 }
 
 .quotes-sidebar li.active {
-  background: #eaeaea;
+  background: #e8e5e0;
 }
 
 .quotes-sidebar span {
   display: block;
   font-size: 0.85rem;
-  color: #666;
+  color: #2a2a2a; /* dark grey */
+  font-family: 'Rosarivo', serif;
 }
 
 .book-list-line {
@@ -54,24 +63,38 @@
   gap: 8px;
 }
 
+.book-list-line strong {
+  font-family: 'Sanchez', serif;
+  font-weight: 600;
+}
+
 .book-quote-count {
-  background: #f0f0f0;
+  background: #e8e5e0;
   padding: 2px 6px;
   border-radius: 12px;
   font-size: 0.8rem;
-  color: #444;
+  color: #2a2a2a; /* dark grey */
+  font-family: 'Rosarivo', serif;
+}
+
+.quotes-sidebar .book-author {
+  font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-style: italic;
+  color: #6f6f6f;
 }
 
 /* RIGHT PANEL */
 .quotes-panel {
   padding: 2rem;
   overflow-y: auto;
+  background: #f5f3f0; /* light beige */
 }
 
 .quotes-panel p {
-  color: #666;
+  color: #2a2a2a; /* dark grey */
   font-size: 0.98rem;
   margin: 0;
+  font-family: 'Rosarivo', serif;
 }
 
 .quotes-list {
@@ -82,26 +105,35 @@
 
 /* QUOTE CARD */
 .quote-card {
-  background: #f9f9f9;
+  background: #f0ede8; /* light grey */
   padding: 1.25rem;
   border-radius: 10px;
+  border: 1px solid #d4cfc6; /* darker beige border */
 }
 
 .quote-card blockquote {
   font-style: italic;
   margin-bottom: 0.5rem;
+  color: #2a2a2a; /* dark grey */
+  font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .quote-page {
   font-size: 0.85rem;
-  color: #777;
+  color: #6f6f6f; /* grey */
+  font-family: 'Rosarivo', serif;
 }
 
 .quote-reflection {
   margin-top: 0.75rem;
-  border-left: 3px solid #ccc;
+  border-left: 3px solid #8b6f47; /* darker brown accent */
   padding-left: 0.75rem;
-  color: #555;
+  color: #2a2a2a; /* dark grey */
+  font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .quotes-panel-header {
@@ -111,42 +143,56 @@
   gap: 12px;
 }
 
+.quotes-panel-header h1 {
+  color: #2a2a2a; /* dark grey */
+  font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-weight: 700;
+}
+
 .title-col {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 12px;
 }
 
 .author-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+  padding-bottom: 1.5rem;
 }
 
 .author-name {
   margin: 0;
-  color: #666;
+  color: #6f6f6f; /* grey */
   font-size: 0.95rem;
   font-weight: 500;
+  font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-style: italic;
 }
 
 .add-quote-inline {
-  background: #4b9bff;
+  background: #77d555; /* green */
   color: white;
   border: none;
   padding: 6px 10px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.95rem;
+  margin-left: 8px; /* keep some breathing room from the author name */
+}
+
+.add-quote-inline.cancel-btn {
+  background: #f25454; /* red */
 }
 
 @media (max-width: 640px) {
   .author-row { flex-direction: column; align-items: flex-start; gap: 6px; }
-  .add-quote-inline { align-self: flex-start; }
+  .add-quote-inline { align-self: flex-start; margin-left: 0; }
 }
 /* keep the old action style available if needed elsewhere */
 .quotes-panel-actions .primary {
-  background: #4b9bff;
+  background: #8b6f47; /* darker brown */
   color: white;
   border: none;
   padding: 8px 12px;
@@ -161,12 +207,13 @@
 
 .quote-form {
   margin: 12px 0 18px 0;
-  background: #fafafa;
+  background: #f0ede8; /* light grey */
   padding: 12px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  border: 1px solid #d4cfc6; /* darker beige border */
 }
 
 .quote-form label {
@@ -174,12 +221,20 @@
   flex-direction: column;
   gap: 6px;
   font-size: 0.95rem;
+  color: #2a2a2a; /* dark grey */
+  font-family: 'Rosarivo', serif;
+}
+
+.quote-form input,
+.quote-form textarea {
+  font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  color: #2a2a2a;
 }
 
 .quote-form textarea { min-height: 80px; }
 
 .quote-form-actions .primary {
-  background: #22c55e;
+  background: #4b9bff; /* blue */
   color: white;
   padding: 8px 12px;
   border: none;
@@ -190,10 +245,34 @@
 
 .quotes-list { display: flex; flex-direction: column; gap: 10px; }
 
-.quote-card { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+.quote-card { background: #f0ede8; /* light grey */ padding: 10px; border-radius: 8px; border: 1px solid #d4cfc6; /* darker beige border */ }
 
-.quote-card blockquote { margin: 0 0 8px 0; }
+.quote-card blockquote { margin: 0 0 8px 0; color: #2a2a2a; /* dark grey */ font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif; }
 
-.quote-page { font-size: 0.85rem; color: #666; }
+.quote-page { font-size: 0.85rem; color: #6f6f6f; /* grey */ font-family: 'Rosarivo', serif; }
 
-.quote-reflection { font-size: 0.9rem; color: #333; }
+.quote-reflection { font-size: 0.9rem; color: #2a2a2a; /* dark grey */ font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif; }
+
+/* Empty state for quotes: give breathing room from header and actions */
+.no-quotes {
+  margin-top: 3.5rem;
+  color: #2a2a2a; /* dark grey */
+  border-top: 1px solid #d4cfc6; /* darker beige */
+  padding-top: 1.25rem;
+  font-family: 'Rosarivo', serif;
+}
+
+.quote-actions { display: flex; justify-content: flex-end; margin-top: 8px; }
+
+.delete-quote-btn { 
+  background: none; 
+  border: none; 
+  color: #b73f3f; /* darker brown */ 
+  cursor: pointer; 
+  padding: 6px 8px; 
+  border-radius: 6px;
+  font-family: 'Rosarivo', serif;
+  font-size: 0.9rem;
+}
+
+.delete-quote-btn:hover { background: rgba(172, 44, 44, 0.1); }

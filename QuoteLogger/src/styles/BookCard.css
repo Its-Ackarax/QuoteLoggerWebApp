@@ -136,18 +136,26 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  background-color: #bfa476;
+  background-color: #f5f3f0; /* light beige */
 }
 
 .book-title {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 0;
+  color: #0d0d0d; /* creamy gold/beige */
+  font-family: 'Sanchez', serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.book-author{
-  color: #ffffff;
-  font-size: 0.9rem;
+.book-author {
+  color: #6f6f6f; /* grey */
+  font-size: 1rem;
   font-style: italic;
+  margin: 0;
+  font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 @media (max-width: 768px) {

@@ -48,18 +48,18 @@ function BookCard({ book }) {
             className={`add-book-btn ${saved ? "saved" : ""}`}
             onClick={handleAddBookClick}
           >
-            {saved ? "Saved" : "Add book to my list"}
+            {saved ? "Saved" : "Add Book To List"}
           </button>
 
           <button className="add-quote-btn" onClick={handleAddQuoteClick}>
-            Add quote for this book
+            Add Quote
           </button>
         </div>
       </div>
 
       <div className="book-info">
-        <h3>{book.title}</h3>
-        <h2>{book.author}</h2>
+        <h3 className="book-title">{book.title}</h3>
+        <h2 className="book-author">by {book.author}</h2>
       </div>
     </div>
   );

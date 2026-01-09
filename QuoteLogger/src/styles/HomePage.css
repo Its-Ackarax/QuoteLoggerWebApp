@@ -5,13 +5,33 @@
 .home-search-area {
   text-align: center;
   padding: 4rem 2rem;
+  position: relative;
+  background-image: url('../assets/BookPNG2.png');
+  background-size: 20% auto;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .home-search-area h1 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
+  margin-top: 0rem;
+  position: relative;
+  z-index: 1;
+  font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  text-shadow: 
+    -0.5px -0.5px 0 white,
+    0.5px -0.5px 0 white,
+    -0.5px 0.5px 0 white,
+    0.5px 0.5px 0 white;
 }
 
 .home-popular {
   margin-top: 3rem;
+}
+
+.home-popular h2 {
+  font-family: 'Rosarivo', serif;
+  color: #2a2a2a;
+  font-weight: 400;
 }
