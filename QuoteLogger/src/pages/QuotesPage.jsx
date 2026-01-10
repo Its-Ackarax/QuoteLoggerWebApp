@@ -8,7 +8,7 @@ import QuotesList from "../components/quotes/QuotesList";
 import AddQuoteForm from "../components/quotes/AddQuoteForm";
 import DeleteQuoteModal from "../components/quotes/DeleteQuoteModal";
 
-import "../styles/QuotesPage.css";
+import "../styles/pages/QuotesPage.css";
 
 function QuotesPage() {
   const { quotes, addQuote, getBookKey, removeQuote } = useQuotes();
@@ -84,7 +84,14 @@ function QuotesPage() {
   }, [selectedBookKey]);
 
   const selectedQuotes = selectedBookKey
-    ? quotes[selectedBookKey] || []
+    ? [...(quotes[selectedBookKey] || [])].sort((a, b) => {
+        // Sort by page number, ascending
+        // Quotes without page numbers go to the end
+        if (!a.page && !b.page) return 0;
+        if (!a.page) return 1; // a goes after b
+        if (!b.page) return -1; // b goes after a
+        return a.page - b.page;
+      })
     : [];
 
   const [title, author] = selectedBookKey
@@ -127,11 +134,11 @@ function QuotesPage() {
           <p>You must first add books to add quotes</p>
         ) : (
           <>
-                  <div className="quotes-panel-header">
+            <div className="quotes-panel-header">
               <div className="title-col">
                 <h1>{title}</h1>
                 <div className="author-row">
-                  <h3 className="author-name">{author}</h3>
+                  <h3 className="author-name">by {author}</h3>
                   <button
                     className={`add-quote-inline ${showAddForm ? "cancel-btn" : ""}`}
                     onClick={() => setShowAddForm((s) => !s)}

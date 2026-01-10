@@ -1,4 +1,4 @@
-import "../../styles/DeleteQuoteModal.css";
+import "../../styles/modals/DeleteQuoteModal.css";
 
 function DeleteQuoteModal({ isOpen, onClose, onConfirm }) {
   if (!isOpen) return null;

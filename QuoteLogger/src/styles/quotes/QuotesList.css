@@ -1,0 +1,30 @@
+.quotes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.quotes-count {
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+  background: linear-gradient(135deg, #e8e5e0 0%, #d9d5ce 100%);
+  color: #4a4a4a;
+  font-family: 'Rosarivo', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(139, 111, 71, 0.15);
+}
+
+/* Empty state for quotes: give breathing room from header and actions */
+.no-quotes {
+  margin-top: 3.5rem;
+  color: #2a2a2a; /* dark grey */
+  border-top: 1px solid #d4cfc6; /* darker beige */
+  padding-top: 1.25rem;
+  font-family: 'Rosarivo', serif;
+}
+

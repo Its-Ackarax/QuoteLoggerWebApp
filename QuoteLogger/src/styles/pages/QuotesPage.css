@@ -1,0 +1,138 @@
+/* Quotes Page Layout */
+.quotes-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: calc(100vh - 80px); /* adjust for header */
+  background: #e0ddd8; /* darker muted beige background */
+  gap: 0;
+}
+
+/* RIGHT PANEL */
+.quotes-panel {
+  padding: 2rem;
+  overflow-y: auto;
+  background: #ffffff;
+  position: relative;
+}
+
+.quotes-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #8b6f47, #c9b892, #8b6f47);
+  opacity: 0.3;
+}
+
+.quotes-panel p {
+  color: #2a2a2a; /* dark grey */
+  font-size: 0.98rem;
+  margin: 0;
+  font-family: 'Rosarivo', serif;
+}
+
+.quotes-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e8e5e0;
+  position: relative;
+}
+
+.quotes-panel-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: #8b6f47;
+}
+
+.quotes-panel-header h1 {
+  color: #2a2a2a; /* dark grey */
+  font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.title-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.author-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 0.75rem;
+}
+
+.author-name {
+  margin: 0;
+  color: #6f6f6f; /* grey */
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-style: italic;
+}
+
+.add-quote-inline {
+  background: linear-gradient(135deg, #72df4b 0%, #6cd443 100%);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-left: 8px;
+  box-shadow: 0 2px 6px rgba(119, 213, 85, 0.3);
+  transition: all 0.2s ease;
+  font-family: 'Rosarivo', serif;
+}
+
+.add-quote-inline:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(119, 213, 85, 0.4);
+  background: linear-gradient(135deg, #7fe05f 0%, #72d155 100%);
+}
+
+.add-quote-inline.cancel-btn {
+  background: linear-gradient(135deg, #f25454 0%, #e04545 100%);
+  box-shadow: 0 2px 6px rgba(242, 84, 84, 0.3);
+}
+
+.add-quote-inline.cancel-btn:hover {
+  box-shadow: 0 4px 12px rgba(242, 84, 84, 0.4);
+  background: linear-gradient(135deg, #ff5f5f 0%, #f25454 100%);
+}
+
+/* keep the old action style available if needed elsewhere */
+.quotes-panel-actions .primary {
+  background: #8b6f47; /* darker brown */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .author-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .add-quote-inline { 
+    align-self: flex-start; 
+    margin-left: 0; 
+    padding: 6px 8px; 
+    font-size: 0.9rem; 
+  }
+  .title-row { gap: 8px; }
+}

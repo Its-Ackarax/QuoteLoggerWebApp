@@ -1,0 +1,166 @@
+/* LEFT SIDEBAR */
+.quotes-sidebar {
+  border-right: 2px solid #d4cfc6;
+  padding: 0;
+  overflow-y: auto;
+  background: linear-gradient(to bottom, #f5f3f0 0%, #f0ede8 100%);
+  position: relative;
+  height: 100%;
+}
+
+.quotes-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #8b6f47, #c9b892, #8b6f47);
+  opacity: 0.3;
+}
+
+.sidebar-container {
+  padding: 1.5rem;
+}
+
+.quotes-sidebar-title,
+.quotes-sidebar h2 {
+  margin: 0 0 1.25rem 0;
+  padding-bottom: 0.75rem;
+  color: #2a2a2a;
+  font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  border-bottom: 2px solid #e8e5e0;
+  position: relative;
+}
+
+.quotes-sidebar-title::after,
+.quotes-sidebar h2::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: #8b6f47;
+}
+
+.quotes-sidebar p {
+  font-size: 0.9rem;
+  color: #6f6f6f;
+  margin: 0 0 1rem 0;
+  font-family: 'Rosarivo', serif;
+  line-height: 1.5;
+  padding: 0.75rem;
+  background: rgba(139, 111, 71, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid rgba(139, 111, 71, 0.3);
+}
+
+.quotes-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quotes-sidebar li {
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  background: #ffffff;
+  border: 1px solid #e8e5e0;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.quotes-sidebar li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #8b6f47, #c9b892);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.quotes-sidebar li:hover {
+  background: #faf9f7;
+  transform: translateX(2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border-color: #d4cfc6;
+}
+
+.quotes-sidebar li:hover::before {
+  opacity: 1;
+}
+
+.quotes-sidebar li.active {
+  background: linear-gradient(135deg, #fffbf7 0%, #f9f7f3 100%);
+  border-color: #8b6f47;
+  box-shadow: 0 2px 8px rgba(139, 111, 71, 0.15), 0 1px 3px rgba(0, 0, 0, 0.06);
+  transform: translateX(2px);
+}
+
+.quotes-sidebar li.active::before {
+  opacity: 1;
+}
+
+.quotes-sidebar span {
+  display: block;
+  font-size: 0.85rem;
+  color: #2a2a2a;
+  font-family: 'Rosarivo', serif;
+}
+
+.book-list-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.4rem;
+}
+
+.book-list-line strong {
+  font-family: 'Sanchez', serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #2a2a2a;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.book-quote-count {
+  background: rgba(139, 111, 71, 0.1);
+  color: #8b6f47;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: 'Rosarivo', serif;
+  border: 1px solid rgba(139, 111, 71, 0.2);
+  min-width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.quotes-sidebar li.active .book-quote-count {
+  background: rgba(139, 111, 71, 0.15);
+  border-color: rgba(139, 111, 71, 0.3);
+  color: #7a5f3f;
+}
+
+.quotes-sidebar .book-author {
+  font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-style: italic;
+  color: #6f6f6f;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+

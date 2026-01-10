@@ -1,3 +1,5 @@
+import "../../styles/quotes/QuoteCard.css";
+
 function QuoteCard({ quote, onDelete }) {
   return (
     <div className="quote-card">
@@ -8,7 +10,10 @@ function QuoteCard({ quote, onDelete }) {
       )}
 
       {quote.reflection && (
-        <p className="quote-reflection">{quote.reflection}</p>
+        <div className="quote-reflection">
+          <span className="quote-reflection-label">Your thoughts:</span>
+          <p className="quote-reflection-text">{quote.reflection}</p>
+        </div>
       )}
 
       <div className="quote-actions">

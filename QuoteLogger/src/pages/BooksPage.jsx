@@ -1,17 +1,33 @@
 import { useBooks } from "../context/BooksContext";
 import BookGrid from "../components/books/BookGrid";
-import "../styles/BooksPage.css";
+import "../styles/pages/BooksPage.css";
 
 function BooksPage() {
   const { books } = useBooks();
 
   return (
     <div className="books-page">
-      <h1>My Books</h1>
-      <p>Total books saved: {books.length}</p>
+      <div className="books-page-header">
+        <div className="header-content">
+          <h1>My Books</h1>
+          <div className="books-count-badge">
+            <span className="count-number">{books.length}</span>
+            <span className="count-label">
+              {books.length === 1 ? "Book" : "Books"}
+            </span>
+          </div>
+        </div>
+      </div>
 
       {books.length === 0 ? (
-        <p>No books saved yet.</p>
+        <div className="empty-state">
+          <div className="empty-state-content">
+            <p className="empty-state-title">No books saved yet</p>
+            <p className="empty-state-message">
+              Start building your collection by searching for books on the home page.
+            </p>
+          </div>
+        </div>
       ) : (
         <BookGrid books={books} />
       )}

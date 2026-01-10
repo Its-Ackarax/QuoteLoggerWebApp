@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../../styles/quotes/AddQuoteForm.css";
 
 function AddQuoteForm({ onSubmit }) {
   const [text, setText] = useState("");

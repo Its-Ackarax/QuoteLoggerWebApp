@@ -1,23 +1,30 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useRef } from "react";
 
 const BooksContext = createContext();
 
 export function BooksProvider({ children }) {
   const [books, setBooks] = useState([]);
   const [hasLoaded, setHasLoaded] = useState(false);
+  const isInitialMount = useRef(true);
 
   // ✅ Load from localStorage ONCE
   useEffect(() => {
     const storedBooks = localStorage.getItem("savedBooks");
     if (storedBooks) {
-      setBooks(JSON.parse(storedBooks));
+      try {
+        setBooks(JSON.parse(storedBooks));
+      } catch (error) {
+        console.error("Error parsing saved books:", error);
+        setBooks([]);
+      }
     }
     setHasLoaded(true);
+    isInitialMount.current = false;
   }, []);
 
-  // ✅ Save only AFTER initial load
+  // ✅ Save only AFTER initial load completes AND books actually change
   useEffect(() => {
-    if (!hasLoaded) return;
+    if (!hasLoaded || isInitialMount.current) return;
     localStorage.setItem("savedBooks", JSON.stringify(books));
   }, [books, hasLoaded]);
 

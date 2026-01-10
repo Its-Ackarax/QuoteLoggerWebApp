@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import SearchBar from "../components/ui/SearchBar";
 import BookGrid from "../components/books/BookGrid";
 import { searchBooks, getPopularBooks } from "../services/booksApi";
-import "../styles/HomePage.css";
+import bookImage from "../assets/BookPNG2.png";
+import "../styles/pages/HomePage.css";
 
 function HomePage() {
   const [query, setQuery] = useState("");
@@ -41,7 +42,10 @@ function HomePage() {
   
   return (
     <div className="home">
-      <section className="home-search-area">
+      <section 
+        className="home-search-area"
+        style={{ backgroundImage: `url(${bookImage})` }}
+      >
         <h1>
           Search and add books<br />
           to log your quotes
@@ -65,7 +69,7 @@ function HomePage() {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <BookGrid books={hasSearched ? searchResults : popularBooks} />
+          <BookGrid books={hasSearched ? searchResults : popularBooks} limit={15} />
         )}
       </section>
     </div>

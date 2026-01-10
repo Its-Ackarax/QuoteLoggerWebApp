@@ -47,13 +47,22 @@ export function QuotesProvider({ children }) {
 
     setQuotes((prev) => ({
       ...prev,
-      [key]: prev[key].filter((q) => q.id !== quoteId)
+      [key]: (prev[key] || []).filter((q) => q.id !== quoteId)
     }));
+  }
+
+  function removeAllQuotesForBook(book) {
+    const key = getBookKey(book);
+    setQuotes((prev) => {
+      const updated = { ...prev };
+      delete updated[key];
+      return updated;
+    });
   }
 
   return (
     <QuotesContext.Provider
-      value={{ quotes, addQuote, removeQuote, getBookKey }}
+      value={{ quotes, addQuote, removeQuote, removeAllQuotesForBook, getBookKey }}
     >
       {children}
     </QuotesContext.Provider>

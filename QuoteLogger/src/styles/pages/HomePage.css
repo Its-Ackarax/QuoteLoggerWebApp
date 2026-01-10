@@ -1,0 +1,102 @@
+.home {
+  padding: 0;
+  min-height: calc(100vh - 80px);
+  background: #e0ddd8;
+}
+
+.home-search-area {
+  text-align: center;
+  padding: clamp(2rem, 8vw, 4rem) clamp(1rem, 4vw, 2rem);
+  position: relative;
+  /* Scale background proportionally with text: 5vw for text, 20vw for background maintains ~4:1 ratio */
+  background-size: clamp(12rem, 20vw, 22rem) auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-bottom: 2px solid #d4cfc6;
+}
+
+.home-search-area h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  margin-top: 0rem;
+  position: relative;
+  z-index: 1;
+  color: #2a2a2a;
+  font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  text-shadow: 
+    -0.5px -0.5px 0 white,
+    0.5px -0.5px 0 white,
+    -0.5px 0.5px 0 white,
+    0.5px 0.5px 0 white;
+}
+
+.home-popular {
+  padding: 2.5rem 2rem;
+  background: linear-gradient(to bottom, #f5f3f0 0%, #f0ede8 100%);
+  position: relative;
+}
+
+.home-popular::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #8b6f47, #c9b892, #8b6f47);
+  opacity: 0.3;
+}
+
+.home-popular h2 {
+  font-family: 'Rosarivo', serif;
+  color: #2a2a2a;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e8e5e0;
+  position: relative;
+  font-size: 1.25rem;
+}
+
+.home-popular h2::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: #8b6f47;
+}
+
+/* Update BookGrid styling when used on home page */
+.home-popular .book-grid {
+  background: linear-gradient(135deg, #f0ede8 0%, #e8e5e0 100%);
+  border: 1px solid #d4cfc6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.home-popular p {
+  font-family: 'Rosarivo', serif;
+  color: #6f6f6f;
+  font-size: 1rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .home-popular {
+    padding: 1.5rem 1rem;
+  }
+  
+  .home-popular h2 {
+    font-size: 1.1rem;
+  }
+}

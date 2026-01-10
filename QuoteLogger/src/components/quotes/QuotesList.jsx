@@ -1,4 +1,5 @@
 import QuoteCard from "./QuoteCard";
+import "../../styles/quotes/QuotesList.css";
 
 function QuotesList({ quotes, onDelete, isAdding = false }) {
   if (!quotes.length) {
@@ -8,15 +9,20 @@ function QuotesList({ quotes, onDelete, isAdding = false }) {
   }
 
   return (
-    <div className="quotes-list">
-      {quotes.map((quote) => (
-        <QuoteCard
-          key={quote.id}
-          quote={quote}
-          onDelete={onDelete}
-        />
-      ))}
-    </div>
+    <>
+      <div className="quotes-count">
+        Total quotes: {quotes.length}
+      </div>
+      <div className="quotes-list">
+        {quotes.map((quote) => (
+          <QuoteCard
+            key={quote.id}
+            quote={quote}
+            onDelete={onDelete}
+          />
+        ))}
+      </div>
+    </>
   );
 }
 
