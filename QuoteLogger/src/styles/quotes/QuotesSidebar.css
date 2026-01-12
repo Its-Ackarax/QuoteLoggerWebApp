@@ -1,9 +1,8 @@
-/* LEFT SIDEBAR */
 .quotes-sidebar {
-  border-right: 2px solid #d4cfc6;
+  border-right: 3px solid #8b7fa8;
   padding: 0;
   overflow-y: auto;
-  background: linear-gradient(to bottom, #f5f3f0 0%, #f0ede8 100%);
+  background: linear-gradient(to bottom, rgba(245, 243, 250, 1) 0%, rgba(240, 237, 245, 1) 100%);
   position: relative;
   height: 100%;
 }
@@ -15,8 +14,8 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(to right, #8b6f47, #c9b892, #8b6f47);
-  opacity: 0.3;
+  background: linear-gradient(to right, #8b7fa8, #a594c4, #8b7fa8);
+  opacity: 0.7;
 }
 
 .sidebar-container {
@@ -25,14 +24,14 @@
 
 .quotes-sidebar-title,
 .quotes-sidebar h2 {
-  margin: 0 0 1.25rem 0;
+  margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
   color: #2a2a2a;
   font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
   font-weight: 700;
   font-size: 1.5rem;
   letter-spacing: -0.01em;
-  border-bottom: 2px solid #e8e5e0;
+  border-bottom: 2px solid rgba(139, 127, 168, 0.3);
   position: relative;
 }
 
@@ -43,20 +42,20 @@
   bottom: -2px;
   left: 0;
   width: 50px;
-  height: 2px;
-  background: #8b6f47;
+  height: 3px;
+  background: linear-gradient(to right, #8b7fa8, #a594c4);
 }
 
 .quotes-sidebar p {
   font-size: 0.9rem;
   color: #6f6f6f;
-  margin: 0 0 1rem 0;
+  margin-bottom: 1rem;
   font-family: 'Rosarivo', serif;
   line-height: 1.5;
   padding: 0.75rem;
-  background: rgba(139, 111, 71, 0.05);
+  background: rgba(139, 127, 168, 0.15);
   border-radius: 8px;
-  border-left: 3px solid rgba(139, 111, 71, 0.3);
+  border-left: 4px solid #8b7fa8;
 }
 
 .quotes-sidebar ul {
@@ -84,8 +83,8 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 3px;
-  background: linear-gradient(to bottom, #8b6f47, #c9b892);
+  width: 4px;
+  background: linear-gradient(to bottom, #d67fa3, #e6b8cc);
   opacity: 0;
   transition: opacity 0.2s ease;
 }
@@ -97,23 +96,20 @@
   border-color: #d4cfc6;
 }
 
-.quotes-sidebar li:hover::before {
-  opacity: 1;
-}
-
-.quotes-sidebar li.active {
-  background: linear-gradient(135deg, #fffbf7 0%, #f9f7f3 100%);
-  border-color: #8b6f47;
-  box-shadow: 0 2px 8px rgba(139, 111, 71, 0.15), 0 1px 3px rgba(0, 0, 0, 0.06);
-  transform: translateX(2px);
-}
-
+.quotes-sidebar li:hover::before,
 .quotes-sidebar li.active::before {
   opacity: 1;
 }
 
+.quotes-sidebar li.active {
+  background: linear-gradient(135deg, rgba(245, 245, 245, 0.9) 0%, rgba(250, 250, 250, 0.7) 100%);
+  border-color: #d67fa3;
+  border-width: 2px;
+  box-shadow: 0 2px 8px rgba(214, 127, 163, 0.35), 0 1px 3px rgba(0, 0, 0, 0.06);
+  transform: translateX(2px);
+}
+
 .quotes-sidebar span {
-  display: block;
   font-size: 0.85rem;
   color: #2a2a2a;
   font-family: 'Rosarivo', serif;
@@ -137,23 +133,24 @@
 }
 
 .book-quote-count {
-  background: rgba(139, 111, 71, 0.1);
-  color: #8b6f47;
+  background: linear-gradient(135deg, rgba(139, 127, 168, 0.25), rgba(139, 127, 168, 0.2));
+  color: #6a5f85;
   padding: 0.2rem 0.5rem;
   border-radius: 10px;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   font-family: 'Rosarivo', serif;
-  border: 1px solid rgba(139, 111, 71, 0.2);
+  border: 1px solid rgba(139, 127, 168, 0.5);
   min-width: 20px;
   text-align: center;
   flex-shrink: 0;
 }
 
 .quotes-sidebar li.active .book-quote-count {
-  background: rgba(139, 111, 71, 0.15);
-  border-color: rgba(139, 111, 71, 0.3);
-  color: #7a5f3f;
+  background: linear-gradient(135deg, rgba(214, 127, 163, 0.3), rgba(230, 184, 204, 0.25));
+  border-color: rgba(214, 127, 163, 0.5);
+  color: #c47a94;
+  border-width: 1.5px;
 }
 
 .quotes-sidebar .book-author {

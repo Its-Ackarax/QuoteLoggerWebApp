@@ -24,17 +24,17 @@ function NavBar() {
 
                 <ul className="menu-buttons desktop">
                     <li>
-                        <NavLink to="/" className={({isActive}) => isActive ? 'menu-button active' : 'menu-button'}>
-                            Home
-                        </NavLink>
+                    <NavLink to="/" className={({isActive}) => `menu-button ${isActive ? 'active' : ''}`}>
+                        Home
+                    </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/books" className={({isActive}) => isActive ? 'menu-button active' : 'menu-button'}>
+                        <NavLink to="/books" className={({isActive}) => `menu-button ${isActive ? 'active' : ''}`}>
                             Books
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/quotes" className={({isActive}) => isActive ? 'menu-button active' : 'menu-button'}>
+                        <NavLink to="/quotes" className={({isActive}) => `menu-button ${isActive ? 'active' : ''}`}>
                             Quotes
                         </NavLink>
                     </li>
@@ -43,13 +43,13 @@ function NavBar() {
 
             <ul id="mobile-menu" className={`menu-buttons mobile ${open ? 'open' : ''}`}>
                 <li>
-                    <NavLink to="/" className={({isActive}) => isActive ? 'menu-button active' : 'menu-button'} onClick={() => setOpen(false)}>Home</NavLink>
+                    <NavLink to="/" className={({isActive}) => `menu-button ${isActive ? 'active' : ''}`} onClick={() => setOpen(false)}>Home</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/books" className={({isActive}) => isActive ? 'menu-button active' : 'menu-button'} onClick={() => setOpen(false)}>Books</NavLink>
+                    <NavLink to="/books" className={({isActive}) => `menu-button ${isActive ? 'active' : ''}`} onClick={() => setOpen(false)}>Books</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/quotes" className={({isActive}) => isActive ? 'menu-button active' : 'menu-button'} onClick={() => setOpen(false)}>Quotes</NavLink>
+                    <NavLink to="/quotes" className={({isActive}) => `menu-button ${isActive ? 'active' : ''}`} onClick={() => setOpen(false)}>Quotes</NavLink>
                 </li>
             </ul>
         </nav>

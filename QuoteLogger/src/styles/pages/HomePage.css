@@ -8,9 +8,8 @@
   text-align: center;
   padding: clamp(2rem, 8vw, 4rem) clamp(1rem, 4vw, 2rem);
   position: relative;
-  /* Scale background proportionally with text: 5vw for text, 20vw for background maintains ~4:1 ratio */
   background-size: clamp(12rem, 20vw, 22rem) auto;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -22,8 +21,7 @@
 
 .home-search-area h1 {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
-  margin-bottom: clamp(1rem, 3vw, 1.5rem);
-  margin-top: 0rem;
+  margin: 0 0 clamp(1rem, 3vw, 1.5rem) 0;
   position: relative;
   z-index: 1;
   color: #2a2a2a;
@@ -51,8 +49,8 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(to right, #8b6f47, #c9b892, #8b6f47);
-  opacity: 0.3;
+  background: linear-gradient(to right, #8b7fa8, #a594c4, #8b7fa8, #a594c4);
+  opacity: 0.8;
 }
 
 .home-popular h2 {
@@ -61,7 +59,7 @@
   font-weight: 400;
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid #e8e5e0;
+  border-bottom: 2px solid rgba(139, 127, 168, 0.3);
   position: relative;
   font-size: 1.25rem;
 }
@@ -71,16 +69,15 @@
   position: absolute;
   bottom: -2px;
   left: 0;
-  width: 50px;
-  height: 2px;
-  background: #8b6f47;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, #8b7fa8, #a594c4);
 }
 
-/* Update BookGrid styling when used on home page */
 .home-popular .book-grid {
-  background: linear-gradient(135deg, #f0ede8 0%, #e8e5e0 100%);
-  border: 1px solid #d4cfc6;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: linear-gradient(135deg, rgba(245, 243, 250, 0.7) 0%, rgba(240, 237, 245, 0.6) 100%);
+  border: 1px solid rgba(139, 127, 168, 0.25);
+  box-shadow: 0 2px 8px rgba(139, 127, 168, 0.12);
 }
 
 .home-popular p {

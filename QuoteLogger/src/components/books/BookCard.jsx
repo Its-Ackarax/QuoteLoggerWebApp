@@ -20,7 +20,6 @@ function BookCard({ book }) {
 
     function handleAddBookClick() {
         if (saved) {
-            // Check if book has quotes before removing
             if (quoteCount > 0) {
                 setShowDeleteModal(true);
             } else {
@@ -32,11 +31,8 @@ function BookCard({ book }) {
     }
 
     function handleConfirmDelete() {
-        // Remove all quotes for this book
         removeAllQuotesForBook(book);
-        // Remove the book
         removeBook(book);
-        // Close modal
         setShowDeleteModal(false);
     }
 
@@ -45,10 +41,7 @@ function BookCard({ book }) {
     }
 
     function handleAddQuoteClick() {
-        // ensure book is saved to the user's list
         if (!saved) addBook(book);
-
-        // navigate to the quotes page and open the add-quote form for this book
         navigate("/quotes", { state: { book, openAddQuote: true } });
     }
 

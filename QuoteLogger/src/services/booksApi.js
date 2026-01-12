@@ -20,7 +20,7 @@ export async function searchBooks(query) {
 
 export async function getPopularBooks() {
   const apiKey = "AY0COmY1NlPN5lQUP0Z94c4TOiIOAugD9t58wAaLhTaqzYkh"; 
-  const listName = "combined-print-and-e-book-fiction"; // You can change this to other NYT best seller lists
+  const listName = "combined-print-and-e-book-fiction";
 
   const response = await fetch(
     `https://api.nytimes.com/svc/books/v3/lists/current/${listName}.json?api-key=${apiKey}`
@@ -28,16 +28,13 @@ export async function getPopularBooks() {
 
   const data = await response.json();
 
-  // If the API did not return results or the expected structure, return empty
   if (!data?.results?.books) return [];
 
   return data.results.books.map((book) => {
     return {
       title: book.title ?? "Untitled",
       author: book.author ?? "Unknown Author",
-      // NYT best seller results include a book_cover image already
       url: book.book_image ?? null,
-      // You can also optionally return rank or description if you need
       rank: book.rank,
       description: book.description
     };

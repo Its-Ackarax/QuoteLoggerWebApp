@@ -3,7 +3,6 @@ import "../../styles/quotes/QuotesList.css";
 
 function QuotesList({ quotes, onDelete, isAdding = false }) {
   if (!quotes.length) {
-    // When the user is in the process of adding a quote, hide the empty state
     if (isAdding) return null;
     return <p className="no-quotes">No quotes for this book yet.</p>;
   }

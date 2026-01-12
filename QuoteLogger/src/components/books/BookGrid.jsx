@@ -6,14 +6,12 @@ function BookGrid({ books, limit = null }) {
     return <p>No books found.</p>;
   }
 
-  // Sort books alphabetically by title
   let displayBooks = [...books].sort((a, b) => {
     const t1 = (a.title || "").toString();
     const t2 = (b.title || "").toString();
     return t1.localeCompare(t2, undefined, { sensitivity: "base" });
   });
 
-  // Apply limit if specified (for homepage with popular books)
   if (limit !== null && limit > 0) {
     displayBooks = displayBooks.slice(0, limit);
   }

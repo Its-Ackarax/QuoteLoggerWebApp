@@ -28,7 +28,7 @@ function AddQuoteForm({ onSubmit }) {
       <label>
         Quote text
         <textarea
-          style ={{resize: "none"}}
+          style={{resize: "none"}}
           value={text}
           onChange={(e) => setText(e.target.value)}
           required
@@ -50,7 +50,7 @@ function AddQuoteForm({ onSubmit }) {
       <label>
         Reflection (optional)
         <textarea
-          style ={{resize: "none"}}
+          style={{resize: "none"}}
           value={reflection}
           onChange={(e) => setReflection(e.target.value)}
         />

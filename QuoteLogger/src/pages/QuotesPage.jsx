@@ -37,8 +37,6 @@ function QuotesPage() {
   const isInitialMount = useRef(true);
 
   useEffect(() => {
-    // Keep the user's selection where possible. Only pick the first key when there is
-    // no current selection or the current selection has been removed.
     if (!bookKeys.length) {
       setSelectedBookKey(null);
       return;
@@ -49,9 +47,7 @@ function QuotesPage() {
       return;
     }
 
-    if (bookKeys.includes(selectedBookKey)) return; // selection still valid
-
-    // current selection was removed (e.g., book deleted), fall back to first
+    if (bookKeys.includes(selectedBookKey)) return;
     setSelectedBookKey(bookKeys[0]);
   }, [bookKeys, selectedBookKey]);
 
@@ -70,26 +66,19 @@ function QuotesPage() {
     }
   }, [location?.state, getBookKey, navigate, location.pathname]);
 
-  // Close the form when the selected book changes
   useEffect(() => {
-    // Skip on initial mount
     if (isInitialMount.current) {
       isInitialMount.current = false;
       return;
     }
-
-    // Close the form when book changes
-    // (If location state wants to open it, that effect will run after and override this)
     setShowAddForm(false);
   }, [selectedBookKey]);
 
   const selectedQuotes = selectedBookKey
     ? [...(quotes[selectedBookKey] || [])].sort((a, b) => {
-        // Sort by page number, ascending
-        // Quotes without page numbers go to the end
         if (!a.page && !b.page) return 0;
-        if (!a.page) return 1; // a goes after b
-        if (!b.page) return -1; // b goes after a
+        if (!a.page) return 1;
+        if (!b.page) return -1;
         return a.page - b.page;
       })
     : [];

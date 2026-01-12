@@ -1,13 +1,11 @@
-/* Quotes Page Layout */
 .quotes-layout {
   display: grid;
   grid-template-columns: 280px 1fr;
-  height: calc(100vh - 80px); /* adjust for header */
-  background: #e0ddd8; /* darker muted beige background */
+  height: calc(100vh - 80px);
+  background: #e0ddd8;
   gap: 0;
 }
 
-/* RIGHT PANEL */
 .quotes-panel {
   padding: 2rem;
   overflow-y: auto;
@@ -22,14 +20,13 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(to right, #8b6f47, #c9b892, #8b6f47);
-  opacity: 0.3;
+  background: linear-gradient(to right, #8b7fa8, #a594c4, #8b7fa8, #a594c4);
+  opacity: 0.8;
 }
 
 .quotes-panel p {
-  color: #2a2a2a; /* dark grey */
+  color: #2a2a2a;
   font-size: 0.98rem;
-  margin: 0;
   font-family: 'Rosarivo', serif;
 }
 
@@ -40,7 +37,7 @@
   gap: 12px;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
-  border-bottom: 2px solid #e8e5e0;
+  border-bottom: 2px solid rgba(139, 127, 168, 0.3);
   position: relative;
 }
 
@@ -49,17 +46,16 @@
   position: absolute;
   bottom: -2px;
   left: 0;
-  width: 60px;
-  height: 2px;
-  background: #8b6f47;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, #8b7fa8, #a594c4);
 }
 
 .quotes-panel-header h1 {
-  color: #2a2a2a; /* dark grey */
+  color: #2a2a2a;
   font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
   font-weight: 700;
   font-size: 1.75rem;
-  margin: 0;
   letter-spacing: -0.02em;
 }
 
@@ -77,8 +73,7 @@
 }
 
 .author-name {
-  margin: 0;
-  color: #6f6f6f; /* grey */
+  color: #6f6f6f;
   font-size: 0.95rem;
   font-weight: 500;
   font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
@@ -87,11 +82,10 @@
 
 .add-quote-inline {
   background: linear-gradient(135deg, #72df4b 0%, #6cd443 100%);
-  color: white;
+  color: #ffffff;
   border: none;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
-  cursor: pointer;
   font-size: 0.9rem;
   font-weight: 600;
   margin-left: 8px;
@@ -116,14 +110,12 @@
   background: linear-gradient(135deg, #ff5f5f 0%, #f25454 100%);
 }
 
-/* keep the old action style available if needed elsewhere */
 .quotes-panel-actions .primary {
-  background: #8b6f47; /* darker brown */
-  color: white;
+  background: #8b6f47;
+  color: #ffffff;
   border: none;
   padding: 8px 12px;
   border-radius: 6px;
-  cursor: pointer;
 }
 
 @media (max-width: 640px) {

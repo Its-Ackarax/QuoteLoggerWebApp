@@ -2,7 +2,6 @@ import { Outlet } from "react-router-dom";
 import NavBar from "./components/layout/NavBar.jsx";
 
 function App() {
-
   return (
     <>
       <NavBar/>
@@ -10,7 +9,7 @@ function App() {
         <Outlet/>
       </main>
     </>
-  )
+  );
 }
 
 export default App

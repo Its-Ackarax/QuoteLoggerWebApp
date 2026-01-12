@@ -22,4 +22,3 @@ function DeleteQuoteModal({ isOpen, onClose, onConfirm }) {
 }
 
 export default DeleteQuoteModal;
-

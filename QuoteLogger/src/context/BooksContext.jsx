@@ -7,7 +7,6 @@ export function BooksProvider({ children }) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const isInitialMount = useRef(true);
 
-  // ✅ Load from localStorage ONCE
   useEffect(() => {
     const storedBooks = localStorage.getItem("savedBooks");
     if (storedBooks) {
@@ -22,7 +21,6 @@ export function BooksProvider({ children }) {
     isInitialMount.current = false;
   }, []);
 
-  // ✅ Save only AFTER initial load completes AND books actually change
   useEffect(() => {
     if (!hasLoaded || isInitialMount.current) return;
     localStorage.setItem("savedBooks", JSON.stringify(books));

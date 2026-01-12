@@ -23,25 +23,21 @@ export function QuotesProvider({ children }) {
     return `${book.title}|${book.author}`;
   }
 
-    function addQuote(book, quote) {
+  function addQuote(book, quote) {
     const key = getBookKey(book);
-
     setQuotes((prev) => ({
-        ...prev,
-        [key]: [
+      ...prev,
+      [key]: [
         ...(prev[key] || []),
         {
-            id: Date.now(),
-            text: quote.text,
-            page: quote.page,
-            reflection: quote.reflection
+          id: Date.now(),
+          text: quote.text,
+          page: quote.page,
+          reflection: quote.reflection
         }
-        ]
+      ]
     }));
-}
-
-
-
+  }
   function removeQuote(book, quoteId) {
     const key = getBookKey(book);
 
@@ -68,9 +64,6 @@ export function QuotesProvider({ children }) {
     </QuotesContext.Provider>
   );
 }
-
-
-
 export function useQuotes() {
   return useContext(QuotesContext);
 }

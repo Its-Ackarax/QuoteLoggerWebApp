@@ -30,4 +30,3 @@ function DeleteBookModal({ isOpen, onClose, onConfirm, bookTitle, quoteCount }) 
 }
 
 export default DeleteBookModal;
-
