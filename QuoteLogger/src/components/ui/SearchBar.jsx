@@ -8,7 +8,7 @@ function SearchInput({ value, onChange, onSubmit }) {
         <img src={searchIcon} alt="Search" className="search-icon" />
         <input
           type="text"
-          placeholder="Type the name of an author or book"
+          placeholder="Search books or authors"
           value={value}
           onChange={onChange}
         />

@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../../styles/quotes/AddQuoteForm.css";
 
-function AddQuoteForm({ onSubmit }) {
-  const [text, setText] = useState("");
-  const [page, setPage] = useState("");
-  const [reflection, setReflection] = useState("");
+function AddQuoteForm({ onSubmit, initialText = "", initialPage = "", initialReflection = "", onCancel }) {
+  const [text, setText] = useState(initialText);
+  const [page, setPage] = useState(initialPage ? String(initialPage) : "");
+  const [reflection, setReflection] = useState(initialReflection || "");
+
+  useEffect(() => {
+    setText(initialText);
+    setPage(initialPage ? String(initialPage) : "");
+    setReflection(initialReflection || "");
+  }, [initialText, initialPage, initialReflection]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,9 +24,11 @@ function AddQuoteForm({ onSubmit }) {
       reflection: reflection.trim() || undefined,
     });
 
-    setText("");
-    setPage("");
-    setReflection("");
+    if (!initialText) {
+      setText("");
+      setPage("");
+      setReflection("");
+    }
   }
 
   return (
@@ -57,7 +65,14 @@ function AddQuoteForm({ onSubmit }) {
       </label>
 
       <div className="quote-form-actions">
-        <button type="submit" className="primary">Save Quote</button>
+        {onCancel && (
+          <button type="button" className="cancel" onClick={onCancel}>
+            Cancel
+          </button>
+        )}
+        <button type="submit" className="primary">
+          {initialText ? "Update Quote" : "Save Quote"}
+        </button>
       </div>
     </form>
   );

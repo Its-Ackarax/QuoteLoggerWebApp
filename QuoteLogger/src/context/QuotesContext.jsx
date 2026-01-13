@@ -71,9 +71,44 @@ export function QuotesProvider({ children }) {
     });
   }
 
+  function updateQuote(book, quoteId, updatedQuote) {
+    const key = getBookKey(book);
+    setQuotes((prev) => {
+      if (!prev[key]) return prev;
+      const quotesArray = prev[key] || [];
+      const quoteToUpdate = quotesArray.find(q => q.id === quoteId);
+      
+      if (!quoteToUpdate) return prev;
+      
+      const textChanged = quoteToUpdate.text !== updatedQuote.text;
+      const pageChanged = quoteToUpdate.page !== updatedQuote.page;
+      const reflectionChanged = (quoteToUpdate.reflection || undefined) !== (updatedQuote.reflection || undefined);
+      
+      if (!textChanged && !pageChanged && !reflectionChanged) {
+        return prev;
+      }
+      
+      const updatedQuotes = quotesArray.map((q) => {
+        if (q.id === quoteId) {
+          return {
+            ...q,
+            text: updatedQuote.text,
+            page: updatedQuote.page,
+            reflection: updatedQuote.reflection || undefined
+          };
+        }
+        return q;
+      });
+      return {
+        ...prev,
+        [key]: updatedQuotes
+      };
+    });
+  }
+
   return (
     <QuotesContext.Provider
-      value={{ quotes, addQuote, removeQuote, removeAllQuotesForBook, getBookKey }}
+      value={{ quotes, addQuote, removeQuote, removeAllQuotesForBook, updateQuote, getBookKey }}
     >
       {children}
     </QuotesContext.Provider>

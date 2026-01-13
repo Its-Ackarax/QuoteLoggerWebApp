@@ -84,9 +84,30 @@
 .quote-actions {
   display: flex;
   justify-content: flex-end;
+  gap: 0.5rem;
   margin-top: 0.6rem;
   padding-top: 0.5rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid rgba(var(--accent-primary-rgb), 0.3);
+}
+
+.edit-quote-btn {
+  background: rgba(var(--accent-primary-rgb), 0.1);
+  border: 1px solid rgba(var(--accent-primary-rgb), 0.3);
+  color: var(--accent-primary);
+  padding: 0.35rem 0.75rem;
+  border-radius: 5px;
+  font-family: 'Rosarivo', serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.edit-quote-btn:hover {
+  background: rgba(var(--accent-primary-rgb), 0.15);
+  border-color: rgba(var(--accent-primary-rgb), 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(var(--accent-primary-rgb), 0.2);
 }
 
 .delete-quote-btn {
@@ -99,6 +120,7 @@
   font-size: 0.8rem;
   font-weight: 500;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .delete-quote-btn:hover {

@@ -8,6 +8,8 @@
   gap: 1rem;
   border: 2px solid var(--border-color);
   box-shadow: 0 2px 6px var(--shadow-accent);
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .quote-form label {
@@ -30,6 +32,8 @@
   background: var(--bg-primary);
   font-size: 0.95rem;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -54,6 +58,9 @@
 
 .quote-form-actions {
   margin-top: 0.5rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
 }
 
 .quote-form-actions .primary {
@@ -73,4 +80,22 @@
   transform: translateY(-1px);
   box-shadow: 0 4px 12px var(--shadow-accent-hover-strong);
   background: var(--gradient-accent-hover);
+}
+
+.quote-form-actions .cancel {
+  background: rgba(var(--accent-primary-rgb), 0.1);
+  color: var(--text-primary);
+  padding: 0.65rem 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: 'Rosarivo', serif;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.quote-form-actions .cancel:hover {
+  background: rgba(var(--accent-primary-rgb), 0.15);
+  border-color: var(--border-color-hover);
 }

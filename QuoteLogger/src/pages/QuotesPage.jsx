@@ -11,7 +11,7 @@ import DeleteQuoteModal from "../components/quotes/DeleteQuoteModal";
 import "../styles/pages/QuotesPage.css";
 
 function QuotesPage() {
-  const { quotes, addQuote, getBookKey, removeQuote } = useQuotes();
+  const { quotes, addQuote, getBookKey, removeQuote, updateQuote } = useQuotes();
   const { books } = useBooks();
   const location = useLocation();
   const navigate = useNavigate();
@@ -35,6 +35,7 @@ function QuotesPage() {
   const [showAddForm, setShowAddForm] = useState(false);
   const [quoteToDelete, setQuoteToDelete] = useState(null);
   const isInitialMount = useRef(true);
+  const openingFromNavigation = useRef(false);
 
   useEffect(() => {
     if (!bookKeys.length) {
@@ -54,14 +55,20 @@ function QuotesPage() {
   useEffect(() => {
     if (location?.state?.book) {
       const key = getBookKey(location.state.book);
-      setSelectedBookKey(key);
-
+      
       if (location.state.openAddQuote) {
+        openingFromNavigation.current = true;
+        setSelectedBookKey(key);
         setShowAddForm(true);
         navigate(location.pathname, {
           replace: true,
           state: { book: location.state.book },
         });
+        setTimeout(() => {
+          openingFromNavigation.current = false;
+        }, 100);
+      } else {
+        setSelectedBookKey(key);
       }
     }
   }, [location?.state, getBookKey, navigate, location.pathname]);
@@ -71,6 +78,11 @@ function QuotesPage() {
       isInitialMount.current = false;
       return;
     }
+    
+    if (openingFromNavigation.current) {
+      return;
+    }
+    
     setShowAddForm(false);
   }, [selectedBookKey]);
 
@@ -106,6 +118,11 @@ function QuotesPage() {
 
   function handleCancelDelete() {
     setQuoteToDelete(null);
+  }
+
+  function handleUpdateQuote(quoteId, quoteData) {
+    if (!selectedBookKey) return;
+    updateQuote({ title, author }, quoteId, quoteData);
   }
 
   return (
@@ -147,6 +164,7 @@ function QuotesPage() {
             <QuotesList
               quotes={selectedQuotes}
               onDelete={handleDeleteQuote}
+              onUpdate={handleUpdateQuote}
               isAdding={showAddForm}
             />
           </>

@@ -11,7 +11,7 @@ function QuotesSidebar({
     <aside className="quotes-sidebar">
       <div className="sidebar-container">
         <div className="quotes-sidebar-header">
-          <h2 className="quotes-sidebar-title">Books</h2>
+        <h2 className="quotes-sidebar-title">Books</h2>
           <div className="sidebar-books-count-badge">
             <span className="sidebar-count-number">{bookKeys.length}</span>
           </div>

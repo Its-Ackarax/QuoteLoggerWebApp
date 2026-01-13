@@ -1,7 +1,7 @@
 import QuoteCard from "./QuoteCard";
 import "../../styles/quotes/QuotesList.css";
 
-function QuotesList({ quotes, onDelete, isAdding = false }) {
+function QuotesList({ quotes, onDelete, onUpdate, isAdding = false }) {
   if (!quotes.length) {
     if (isAdding) return null;
     return <p className="no-quotes">No quotes for this book yet.</p>;
@@ -18,6 +18,7 @@ function QuotesList({ quotes, onDelete, isAdding = false }) {
             key={quote.id}
             quote={quote}
             onDelete={onDelete}
+            onUpdate={onUpdate}
           />
         ))}
       </div>
