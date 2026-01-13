@@ -1,8 +1,8 @@
 .navbar {
     width: 100%;
-    background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
-    border-bottom: 2px solid #d4cfc6;
-    box-shadow: 0 1px 3px rgba(139, 127, 168, 0.1);
+    background: var(--bg-navbar);
+    border-bottom: 2px solid var(--border-color);
+    box-shadow: 0 1px 3px var(--shadow-accent);
 }
 
 .navbar-inner {
@@ -15,7 +15,7 @@
 }
 
 .menu-app-title {
-    color: #111;
+    color: var(--text-primary);
     font-size: 1.7rem;
     font-weight: 400;
     font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
@@ -29,7 +29,7 @@
 }
 
 .menu-button {
-    color: #111;
+    color: var(--text-primary);
     text-decoration: none;
     padding: 8px 12px;
     border-radius: 6px;
@@ -38,24 +38,24 @@
 
 .menu-button:hover,
 .menu-button:focus {
-    background-color: rgba(139, 127, 168, 0.15);
-    color: #6a5f85;
+    background-color: rgba(var(--accent-primary-rgb), 0.15);
+    color: var(--accent-primary);
     transform: translateY(-1px);
 }
 
 .menu-button.active {
     font-weight: 700;
     text-decoration: none;
-    color: #6a5f85;
-    background-color: rgba(139, 127, 168, 0.2);
-    border-bottom: 2px solid #8b7fa8;
+    color: var(--accent-primary);
+    background-color: rgba(var(--accent-primary-rgb), 0.2);
+    border-bottom: 2px solid var(--accent-primary);
 }
 
 .hamburger {
     display: none;
     border: none;
     padding: 6px;
-    color: #111;
+    color: var(--text-primary);
 }
 
 .hamburger-box {
@@ -71,7 +71,7 @@
     right: 0;
     top: 50%;
     height: 2px;
-    background: #111;
+    background: var(--text-primary);
     transform: translateY(-50%);
     transition: transform 200ms ease, background 200ms ease;
 }
@@ -83,7 +83,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: #111;
+    background: var(--text-primary);
     transition: transform 200ms ease, opacity 200ms ease;
 }
 
@@ -99,7 +99,7 @@
     flex-direction: column;
     gap: 6px;
     padding: 10px 20px;
-    background: #ffffff;
+    background: var(--bg-primary);
 }
 
 .menu-buttons.mobile.open {
@@ -107,12 +107,29 @@
     animation: slideDown 200ms ease both;
 }
 
+.menu-buttons.mobile li {
+    display: flex;
+    align-items: center;
+}
+
+.menu-buttons.mobile .theme-toggle {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 8px 12px;
+}
+
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-6px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
+.theme-toggle-desktop-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 @media (max-width: 640px) {
     .menu-buttons.desktop { display: none; }
+    .theme-toggle-desktop-wrapper { display: none; }
     .hamburger { display: inline-block; }
 }

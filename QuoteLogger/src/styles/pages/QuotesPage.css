@@ -2,14 +2,14 @@
   display: grid;
   grid-template-columns: 280px 1fr;
   height: calc(100vh - 80px);
-  background: #e0ddd8;
+  background: var(--bg-primary);
   gap: 0;
 }
 
 .quotes-panel {
   padding: 2rem;
   overflow-y: auto;
-  background: #ffffff;
+  background: var(--bg-primary);
   position: relative;
 }
 
@@ -20,12 +20,12 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(to right, #8b7fa8, #a594c4, #8b7fa8, #a594c4);
+  background: var(--gradient-border-top);
   opacity: 0.8;
 }
 
 .quotes-panel p {
-  color: #2a2a2a;
+  color: var(--text-primary);
   font-size: 0.98rem;
   font-family: 'Rosarivo', serif;
 }
@@ -37,7 +37,7 @@
   gap: 12px;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
-  border-bottom: 2px solid rgba(139, 127, 168, 0.3);
+  border-bottom: 2px solid var(--border-color);
   position: relative;
 }
 
@@ -48,11 +48,11 @@
   left: 0;
   width: 80px;
   height: 3px;
-  background: linear-gradient(to right, #8b7fa8, #a594c4);
+  background: var(--gradient-border);
 }
 
 .quotes-panel-header h1 {
-  color: #2a2a2a;
+  color: var(--text-primary);
   font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
   font-weight: 700;
   font-size: 1.75rem;
@@ -73,7 +73,7 @@
 }
 
 .author-name {
-  color: #6f6f6f;
+  color: var(--accent-secondary);
   font-size: 0.95rem;
   font-weight: 500;
   font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
@@ -81,23 +81,23 @@
 }
 
 .add-quote-inline {
-  background: linear-gradient(135deg, #72df4b 0%, #6cd443 100%);
-  color: #ffffff;
+  background: var(--gradient-accent);
+  color: var(--bg-primary);
   border: none;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 600;
   margin-left: 8px;
-  box-shadow: 0 2px 6px rgba(119, 213, 85, 0.3);
+  box-shadow: 0 2px 6px var(--shadow-accent-hover);
   transition: all 0.2s ease;
   font-family: 'Rosarivo', serif;
 }
 
 .add-quote-inline:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(119, 213, 85, 0.4);
-  background: linear-gradient(135deg, #7fe05f 0%, #72d155 100%);
+  box-shadow: 0 4px 12px var(--shadow-accent-hover-strong);
+  background: var(--gradient-accent-hover);
 }
 
 .add-quote-inline.cancel-btn {

@@ -8,21 +8,21 @@
   margin-top: 1rem;
   margin-bottom: 0.75rem;
   display: inline-block;
-  background: linear-gradient(135deg, rgba(214, 127, 163, 0.3), rgba(230, 184, 204, 0.25));
-  color: #c47a94;
+  background: var(--gradient-badge);
+  color: var(--text-primary);
   font-family: 'Rosarivo', serif;
   font-size: 0.85rem;
   font-weight: 700;
   padding: 0.35rem 0.85rem;
   border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(214, 127, 163, 0.25);
-  border: 1.5px solid rgba(214, 127, 163, 0.5);
+  box-shadow: 0 2px 4px var(--shadow-accent-strong);
+  border: 1.5px solid var(--border-color);
 }
 
 .no-quotes {
   margin-top: 3.5rem;
-  color: #2a2a2a;
-  border-top: 1px solid #d4cfc6;
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-color);
   padding-top: 1.25rem;
   font-family: 'Rosarivo', serif;
 }

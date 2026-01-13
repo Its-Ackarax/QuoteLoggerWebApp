@@ -9,7 +9,14 @@ export function QuotesProvider({ children }) {
   useEffect(() => {
     const stored = localStorage.getItem("bookQuotes");
     if (stored) {
-      setQuotes(JSON.parse(stored));
+      const parsed = JSON.parse(stored);
+      const cleaned = {};
+      Object.keys(parsed).forEach((key) => {
+        if (parsed[key] && parsed[key].length > 0) {
+          cleaned[key] = parsed[key];
+        }
+      });
+      setQuotes(cleaned);
     }
     setHasLoaded(true);
   }, []);
@@ -41,10 +48,18 @@ export function QuotesProvider({ children }) {
   function removeQuote(book, quoteId) {
     const key = getBookKey(book);
 
-    setQuotes((prev) => ({
-      ...prev,
-      [key]: (prev[key] || []).filter((q) => q.id !== quoteId)
-    }));
+    setQuotes((prev) => {
+      const updatedQuotes = (prev[key] || []).filter((q) => q.id !== quoteId);
+      const updated = { ...prev };
+      
+      if (updatedQuotes.length === 0) {
+        delete updated[key];
+      } else {
+        updated[key] = updatedQuotes;
+      }
+      
+      return updated;
+    });
   }
 
   function removeAllQuotesForBook(book) {

@@ -10,7 +10,12 @@ function QuotesSidebar({
   return (
     <aside className="quotes-sidebar">
       <div className="sidebar-container">
-        <h2 className="quotes-sidebar-title">Books</h2>
+        <div className="quotes-sidebar-header">
+          <h2 className="quotes-sidebar-title">Books</h2>
+          <div className="sidebar-books-count-badge">
+            <span className="sidebar-count-number">{bookKeys.length}</span>
+          </div>
+        </div>
 
         {books.length === 0 && (
           <p>Add books to favourites to start logging quotes</p>

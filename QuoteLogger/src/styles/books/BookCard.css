@@ -2,14 +2,13 @@
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--bg-primary);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   width: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
-
 
 .saved-indicator {
   position: absolute;
@@ -24,14 +23,14 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(10, 123, 61, 0.3);
+  border: 1px solid var(--border-color);
   pointer-events: none;
   backdrop-filter: blur(8px);
 }
 
 .book-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(139, 127, 168, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px var(--shadow-accent-strong), 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .book-cover {
@@ -41,7 +40,7 @@
   max-height: 360px;
   overflow: hidden;
   border-radius: 12px 12px 0 0;
-  background: linear-gradient(135deg, #f5f3f0 0%, #e8e5e0 100%);
+  background: var(--bg-page);
 }
 
 .book-image {
@@ -63,10 +62,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #9a9a9a;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   font-family: 'Rosarivo', serif;
-  background: linear-gradient(135deg, #f0ede8 0%, #e8e5e0 100%);
+  background: var(--bg-page);
 }
 
 .book-overlay {
@@ -102,7 +101,7 @@
 
 .book-title {
   font-size: 1rem;
-  color: #2a2a2a;
+  color: var(--text-primary);
   font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -116,7 +115,7 @@
 }
 
 .book-author {
-  color: #6f6f6f;
+  color: var(--text-secondary);
   font-size: 0.85rem;
   font-style: italic;
   font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
@@ -141,12 +140,11 @@
   content: none !important;
 }
 
-
 .add-book-btn,
 .add-quote-btn {
-  background: #ffffff;
-  color: #2a2a2a;
-  border: none;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
   padding: 8px 14px;
   border-radius: 6px;
   font-size: 0.85rem;
@@ -156,24 +154,27 @@
   font-family: 'Rosarivo', serif;
   transition: all 0.2s ease;
   letter-spacing: 0.3px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px var(--shadow-accent);
 }
 
 .add-book-btn.saved {
-  background: #fff5f5;
-  color: #c42d2d;
+  background: var(--bg-secondary);
+  color: var(--accent-primary);
   font-size: 0.8rem;
+  border-color: var(--border-color-hover);
 }
 
 .add-book-btn:hover,
 .add-quote-btn:hover {
-  background: #f8f8f8;
+  background: var(--bg-secondary);
   transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 6px var(--shadow-accent-strong);
+  border-color: var(--border-color-hover);
 }
 
 .add-book-btn.saved:hover {
-  background: #ffe5e5;
+  background: var(--bg-secondary);
+  border-color: var(--border-color-hover);
 }
 
 @media (max-width: 420px) {

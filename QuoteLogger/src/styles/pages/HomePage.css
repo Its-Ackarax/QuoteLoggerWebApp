@@ -1,7 +1,7 @@
 .home {
   padding: 0;
   min-height: calc(100vh - 80px);
-  background: #e0ddd8;
+  background: var(--bg-primary);
 }
 
 .home-search-area {
@@ -15,8 +15,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
-  border-bottom: 2px solid #d4cfc6;
+  background-color: var(--bg-primary);
+  border-bottom: 2px solid var(--border-color);
 }
 
 .home-search-area h1 {
@@ -24,7 +24,7 @@
   margin: 0 0 clamp(1rem, 3vw, 1.5rem) 0;
   position: relative;
   z-index: 1;
-  color: #2a2a2a;
+  color: var(--text-primary);
   font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
   font-weight: 700;
   text-align: center;
@@ -38,7 +38,7 @@
 
 .home-popular {
   padding: 2.5rem 2rem;
-  background: linear-gradient(to bottom, #f5f3f0 0%, #f0ede8 100%);
+  background: var(--bg-page);
   position: relative;
 }
 
@@ -49,17 +49,17 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(to right, #8b7fa8, #a594c4, #8b7fa8, #a594c4);
+  background: var(--gradient-border-top);
   opacity: 0.8;
 }
 
 .home-popular h2 {
   font-family: 'Rosarivo', serif;
-  color: #2a2a2a;
+  color: var(--text-primary);
   font-weight: 400;
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid rgba(139, 127, 168, 0.3);
+  border-bottom: 2px solid var(--border-color);
   position: relative;
   font-size: 1.25rem;
 }
@@ -71,18 +71,18 @@
   left: 0;
   width: 60px;
   height: 3px;
-  background: linear-gradient(to right, #8b7fa8, #a594c4);
+  background: var(--gradient-border);
 }
 
 .home-popular .book-grid {
-  background: linear-gradient(135deg, rgba(245, 243, 250, 0.7) 0%, rgba(240, 237, 245, 0.6) 100%);
-  border: 1px solid rgba(139, 127, 168, 0.25);
-  box-shadow: 0 2px 8px rgba(139, 127, 168, 0.12);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px var(--shadow-accent);
 }
 
 .home-popular p {
   font-family: 'Rosarivo', serif;
-  color: #6f6f6f;
+  color: var(--text-secondary);
   font-size: 1rem;
   text-align: center;
   padding: 2rem;

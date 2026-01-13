@@ -1,0 +1,96 @@
+[data-palette="mutedLinen"] {
+  --bg-primary: #EEEAE4;
+  --bg-secondary: #E3DED6;
+  --bg-hover: rgba(227, 222, 214, 0.5);
+  --bg-navbar: linear-gradient(to bottom, #EEEAE4 0%, #E3DED6 100%);
+  --bg-page: linear-gradient(to bottom, #EEEAE4 0%, #E3DED6 100%);
+  --accent-primary: #6B7A8F;
+  --accent-secondary: #B08968;
+  --accent-primary-rgb: 107, 122, 143;
+  --accent-secondary-rgb: 176, 137, 104;
+  --quote-highlight: #E3DED6;
+  --text-primary: #333333;
+  --text-secondary: #6B705C;
+  --border-color: rgba(107, 122, 143, 0.4);
+  --border-color-secondary: rgba(176, 137, 104, 0.4);
+  --border-color-hover: rgba(107, 122, 143, 0.5);
+  --border-color-focus: rgba(176, 137, 104, 0.2);
+  --gradient-accent: linear-gradient(135deg, #6B7A8F 0%, #B08968 100%);
+  --gradient-accent-hover: linear-gradient(135deg, #B08968 0%, #6B7A8F 100%);
+  --gradient-border: linear-gradient(to right, #6B7A8F, #B08968);
+  --gradient-border-top: linear-gradient(to right, #6B7A8F, #B08968, #6B7A8F, #B08968);
+  --gradient-border-sidebar: linear-gradient(to right, #6B7A8F, #B08968, #6B7A8F);
+  --gradient-badge: linear-gradient(135deg, rgba(107, 122, 143, 0.25), rgba(176, 137, 104, 0.2));
+  --gradient-badge-active: linear-gradient(135deg, rgba(107, 122, 143, 0.2), rgba(176, 137, 104, 0.15));
+  --gradient-border-vertical: linear-gradient(to bottom, #6B7A8F, #B08968, #6B7A8F);
+  --shadow-accent: rgba(107, 122, 143, 0.15);
+  --shadow-accent-strong: rgba(107, 122, 143, 0.2);
+  --shadow-accent-hover: rgba(107, 122, 143, 0.3);
+  --shadow-accent-hover-strong: rgba(107, 122, 143, 0.4);
+  --bg-reflection: rgba(227, 222, 214, 0.6);
+}
+
+[data-palette="warmOat"] {
+  --bg-primary: #F1E6D2;
+  --bg-secondary: #F4D9C6;
+  --bg-hover: rgba(244, 217, 198, 0.5);
+  --bg-navbar: linear-gradient(to bottom, #F1E6D2 0%, #F4D9C6 100%);
+  --bg-page: linear-gradient(to bottom, #F1E6D2 0%, #F4D9C6 100%);
+  --accent-primary: #C46A2B;
+  --accent-secondary: #7A8450;
+  --accent-primary-rgb: 196, 106, 43;
+  --accent-secondary-rgb: 122, 132, 80;
+  --quote-highlight: #F4D9C6;
+  --text-primary: #3A2E2A;
+  --text-secondary: #7A8450;
+  --border-color: rgba(122, 132, 80, 0.4);
+  --border-color-secondary: rgba(122, 132, 80, 0.4);
+  --border-color-hover: rgba(122, 132, 80, 0.5);
+  --border-color-focus: rgba(196, 106, 43, 0.2);
+  --gradient-accent: linear-gradient(135deg, #C46A2B 0%, #7A8450 100%);
+  --gradient-accent-hover: linear-gradient(135deg, #7A8450 0%, #C46A2B 100%);
+  --gradient-border: linear-gradient(to right, #C46A2B, #7A8450);
+  --gradient-border-top: linear-gradient(to right, #C46A2B, #7A8450, #C46A2B, #7A8450);
+  --gradient-border-sidebar: linear-gradient(to right, #C46A2B, #7A8450, #C46A2B);
+  --gradient-badge: linear-gradient(135deg, rgba(122, 132, 80, 0.25), rgba(142, 152, 100, 0.2));
+  --gradient-badge-active: linear-gradient(135deg, rgba(196, 106, 43, 0.2), rgba(122, 132, 80, 0.15));
+  --gradient-border-vertical: linear-gradient(to bottom, #C46A2B, #7A8450, #C46A2B);
+  --shadow-accent: rgba(122, 132, 80, 0.15);
+  --shadow-accent-strong: rgba(196, 106, 43, 0.2);
+  --shadow-accent-hover: rgba(196, 106, 43, 0.3);
+  --shadow-accent-hover-strong: rgba(196, 106, 43, 0.4);
+  --bg-reflection: rgba(244, 217, 198, 0.6);
+}
+
+[data-palette="blushParchment"] {
+  --bg-primary: #F3E7E5;
+  --bg-secondary: #EED6D3;
+  --bg-hover: rgba(238, 214, 211, 0.5);
+  --bg-navbar: linear-gradient(to bottom, #F3E7E5 0%, #EED6D3 100%);
+  --bg-page: linear-gradient(to bottom, #F3E7E5 0%, #EED6D3 100%);
+  --accent-primary: #B76E79;
+  --accent-secondary: #9C8F8F;
+  --accent-primary-rgb: 183, 110, 121;
+  --accent-secondary-rgb: 156, 143, 143;
+  --quote-highlight: #EED6D3;
+  --text-primary: #4A3A3A;
+  --text-secondary: #9C8F8F;
+  --border-color: rgba(156, 143, 143, 0.4);
+  --border-color-secondary: rgba(156, 143, 143, 0.4);
+  --border-color-hover: rgba(156, 143, 143, 0.5);
+  --border-color-focus: rgba(183, 110, 121, 0.2);
+  --gradient-accent: linear-gradient(135deg, #B76E79 0%, #9C8F8F 100%);
+  --gradient-accent-hover: linear-gradient(135deg, #9C8F8F 0%, #B76E79 100%);
+  --gradient-border: linear-gradient(to right, #B76E79, #9C8F8F);
+  --gradient-border-top: linear-gradient(to right, #B76E79, #9C8F8F, #B76E79, #9C8F8F);
+  --gradient-border-sidebar: linear-gradient(to right, #B76E79, #9C8F8F, #B76E79);
+  --gradient-badge: linear-gradient(135deg, rgba(156, 143, 143, 0.25), rgba(172, 159, 159, 0.2));
+  --gradient-badge-active: linear-gradient(135deg, rgba(183, 110, 121, 0.2), rgba(156, 143, 143, 0.15));
+  --gradient-border-vertical: linear-gradient(to bottom, #B76E79, #9C8F8F, #B76E79);
+  --shadow-accent: rgba(156, 143, 143, 0.15);
+  --shadow-accent-strong: rgba(183, 110, 121, 0.2);
+  --shadow-accent-hover: rgba(183, 110, 121, 0.3);
+  --shadow-accent-hover-strong: rgba(183, 110, 121, 0.4);
+  --bg-reflection: rgba(238, 214, 211, 0.6);
+}
+
