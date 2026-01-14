@@ -37,6 +37,7 @@ function QuotesPage() {
   const [quoteToDelete, setQuoteToDelete] = useState(null);
   const isInitialMount = useRef(true);
   const openingFromNavigation = useRef(false);
+  const lastLocationKeyRef = useRef(null);
 
   useEffect(() => {
     if (!bookKeys.length) {
@@ -54,9 +55,12 @@ function QuotesPage() {
   }, [bookKeys, selectedBookKey]);
 
   useEffect(() => {
+    if (lastLocationKeyRef.current === location.key) return;
+    lastLocationKeyRef.current = location.key;
+
     if (location?.state?.book) {
       const key = getBookKey(location.state.book);
-      
+
       if (location.state.openAddQuote) {
         openingFromNavigation.current = true;
         setSelectedBookKey(key);
@@ -72,7 +76,7 @@ function QuotesPage() {
         setSelectedBookKey(key);
       }
     }
-  }, [location?.state, getBookKey, navigate, location.pathname]);
+  }, [location.key, location?.state, getBookKey, navigate, location.pathname]);
 
   useEffect(() => {
     if (isInitialMount.current) {
