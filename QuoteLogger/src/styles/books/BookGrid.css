@@ -6,6 +6,21 @@
   box-sizing: border-box;
 }
 
+.book-grid-frame {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px var(--shadow-accent);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .book-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
@@ -17,6 +32,8 @@
   width: 100%;
   justify-content: center;
   box-sizing: border-box;
+  position: relative;
+  z-index: 2;
 }
 
 .carousel-btn {
@@ -72,6 +89,16 @@
 }
 
 @media (max-width: 640px) {
+  .book-grid-frame {
+    display: block;
+  }
+
+  .book-grid-container .book-grid {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
   .book-grid-container {
     padding: 0 2.5rem;
     overflow: hidden;
@@ -113,10 +140,6 @@
     margin: 0;
     justify-content: flex-start;
     align-items: center;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
   }
 
   .book-grid.book-grid-carousel .book-card {

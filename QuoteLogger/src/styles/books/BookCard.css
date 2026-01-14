@@ -214,20 +214,31 @@
 }
 
 @media (max-width: 640px) {
+  .book-card {
+    aspect-ratio: 2 / 3;
+  }
+
   .book-info {
     display: none;
   }
 
   .book-cover {
+    height: 100%;
     border-radius: 12px;
+    max-height: none;
   }
 }
 
 @media (max-width: 600px) {
-  .book-cover {
-    max-height: 260px;
+  .book-card {
+    aspect-ratio: 2 / 3;
   }
-  
+
+  .book-cover {
+    height: 100%;
+    max-height: none;
+  }
+
   .saved-indicator {
     width: 24px;
     height: 24px;

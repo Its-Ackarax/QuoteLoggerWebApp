@@ -1,9 +1,10 @@
+import { createPortal } from "react-dom";
 import "../../styles/modals/DeleteBookModal.css";
 
 function DeleteBookModal({ isOpen, onClose, onConfirm, bookTitle, quoteCount }) {
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h3>Remove Book</h3>
@@ -12,7 +13,7 @@ function DeleteBookModal({ isOpen, onClose, onConfirm, bookTitle, quoteCount }) 
         </p>
         {quoteCount > 0 && (
           <p className="warning-message">
-            ⚠️ This book has {quoteCount} saved {quoteCount === 1 ? "quote" : "quotes"}. 
+            ⚠️ This book has {quoteCount} saved {quoteCount === 1 ? "quote" : "quotes"}.{" "}
             Removing this book will also delete all associated quotes. This action cannot be undone.
           </p>
         )}
@@ -25,7 +26,8 @@ function DeleteBookModal({ isOpen, onClose, onConfirm, bookTitle, quoteCount }) 
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 

@@ -110,7 +110,8 @@
 
 @media (max-width: 640px) {
   .home-search-area {
-    padding: 1.25rem 1rem;
+    padding: 1.5rem 1rem 2rem;
+    min-height: 32vh;
   }
 
   .home-search-area h1 {
@@ -137,13 +138,6 @@
     overflow-x: hidden;
   }
 
-  .home-popular .book-grid.book-grid-carousel {
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-  }
-
   .home-popular .book-grid {
     padding: 1rem;
     margin: 0;
@@ -151,4 +145,5 @@
     max-width: 100%;
     box-sizing: border-box;
   }
+
 }

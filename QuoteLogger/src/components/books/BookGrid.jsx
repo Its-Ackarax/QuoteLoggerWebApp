@@ -5,6 +5,7 @@ import "../../styles/books/BookGrid.css";
 function BookGrid({ books, limit = null }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [layoutTick, setLayoutTick] = useState(0);
   const carouselRef = useRef(null);
 
   useEffect(() => {
@@ -12,6 +13,7 @@ function BookGrid({ books, limit = null }) {
       const wasMobile = isMobile;
       const nowMobile = window.innerWidth <= 640;
       setIsMobile(nowMobile);
+      setLayoutTick((tick) => tick + 1);
       
       // Reset carousel position when switching between mobile and desktop
       if (wasMobile !== nowMobile && carouselRef.current) {
@@ -60,34 +62,75 @@ function BookGrid({ books, limit = null }) {
   };
 
   useEffect(() => {
-    if (carouselRef.current && isMobile) {
-      const container = carouselRef.current;
-      const firstCard = container.querySelector('.book-card');
-      if (firstCard) {
-        // Get the actual rendered card width
-        const cardWidth = firstCard.offsetWidth;
-        const gap = 14;
-        // Calculate the center position of the container (accounting for padding)
-        const containerWidth = container.offsetWidth;
-        const padding = 16; // 1rem padding on each side
-        const visibleWidth = containerWidth - (padding * 2);
-        const centerPosition = visibleWidth / 2 + padding;
-        // Calculate where the current card should be positioned to be centered
-        // Position the card so its center aligns with the container center
-        const cardStartPosition = currentIndex * (cardWidth + gap);
-        const cardCenterOffset = cardWidth / 2;
-        // Move the carousel so the current card is centered
-        const translateX = centerPosition - cardStartPosition - cardCenterOffset;
-        container.style.transform = `translateX(${translateX}px)`;
+    if (!carouselRef.current) return;
+
+    const track = carouselRef.current;
+    const viewport = track.parentElement;
+
+    const centerCurrentCard = () => {
+      if (!isMobile || !track || !viewport) return;
+      const currentCard = track.children[currentIndex];
+      if (!currentCard) return;
+
+      const viewportRect = viewport.getBoundingClientRect();
+      const viewportStyles = getComputedStyle(viewport);
+      const paddingLeft = parseFloat(viewportStyles.paddingLeft) || 0;
+      const paddingRight = parseFloat(viewportStyles.paddingRight) || 0;
+      const visibleWidth = viewportRect.width - paddingLeft - paddingRight;
+      const centerX = viewportRect.left + paddingLeft + visibleWidth / 2;
+
+      const transform = getComputedStyle(track).transform;
+      let currentTranslate = 0;
+      if (transform && transform !== "none") {
+        if (transform.startsWith("matrix3d(")) {
+          const values = transform
+            .slice(9, -1)
+            .split(",")
+            .map((value) => parseFloat(value.trim()));
+          currentTranslate = values[12] || 0;
+        } else if (transform.startsWith("matrix(")) {
+          const values = transform
+            .slice(7, -1)
+            .split(",")
+            .map((value) => parseFloat(value.trim()));
+          currentTranslate = values[4] || 0;
+        }
       }
-    } else if (carouselRef.current && !isMobile) {
-      // Reset transform when not in mobile mode
-      carouselRef.current.style.transform = '';
+
+      const trackRect = track.getBoundingClientRect();
+      const trackBaseLeft = trackRect.left - currentTranslate;
+      const cardCenterOffset = currentCard.offsetLeft + currentCard.offsetWidth / 2;
+      const desiredTranslate = centerX - (trackBaseLeft + cardCenterOffset);
+
+      track.style.transform = `translateX(${desiredTranslate}px)`;
+    };
+
+    if (isMobile) {
+      centerCurrentCard();
+      const rafId = requestAnimationFrame(centerCurrentCard);
+
+      const observer = viewport
+        ? new ResizeObserver(() => {
+            centerCurrentCard();
+          })
+        : null;
+      if (observer && viewport) {
+        observer.observe(viewport);
+      }
+
+      return () => {
+        cancelAnimationFrame(rafId);
+        if (observer) observer.disconnect();
+      };
     }
-  }, [currentIndex, isMobile]);
+
+    // Reset transform when not in mobile mode
+    track.style.transform = "";
+  }, [currentIndex, isMobile, layoutTick]);
 
   return (
     <div className="book-grid-container">
+      <div className="book-grid-frame" aria-hidden="true" />
       {isMobile && displayBooks.length > 1 && (
         <button
           className="carousel-btn carousel-btn-prev"
