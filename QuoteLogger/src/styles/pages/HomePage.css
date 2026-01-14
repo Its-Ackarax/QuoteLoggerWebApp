@@ -133,6 +133,17 @@
     font-size: 0.9rem;
   }
 
+  .home-popular {
+    overflow-x: hidden;
+  }
+
+  .home-popular .book-grid.book-grid-carousel {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
   .home-popular .book-grid {
     padding: 1rem;
     margin: 0;

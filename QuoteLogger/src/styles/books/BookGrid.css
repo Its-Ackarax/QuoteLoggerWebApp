@@ -1,3 +1,11 @@
+.book-grid-container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 .book-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
@@ -7,10 +15,53 @@
   border-radius: 12px;
   border: 1px solid var(--border-color);
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
   justify-content: center;
   box-sizing: border-box;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.carousel-btn:hover {
+  background: var(--bg-secondary);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: translateY(-50%);
+}
+
+.carousel-btn:disabled:hover {
+  transform: translateY(-50%);
+  background: var(--bg-primary);
+}
+
+.carousel-btn-prev {
+  left: -20px;
+}
+
+.carousel-btn-next {
+  right: -20px;
 }
 
 @media (max-width: 900px) {
@@ -21,18 +72,84 @@
 }
 
 @media (max-width: 640px) {
-  .book-grid {
-    padding: 1rem;
-    gap: 14px;
+  .book-grid-container {
+    padding: 0 2.5rem;
+    overflow: hidden;
+    box-sizing: border-box;
     width: 100%;
     max-width: 100%;
+    position: relative;
+  }
+
+  .book-grid-container::before,
+  .book-grid-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2.5rem;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .book-grid-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-page), transparent);
+  }
+
+  .book-grid-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-page), transparent);
+  }
+
+  .book-grid.book-grid-carousel {
+    display: flex;
+    overflow: visible;
+    gap: 14px;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+    width: calc(100% - 0px);
     box-sizing: border-box;
+    margin: 0;
+    justify-content: flex-start;
+    align-items: center;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .book-grid.book-grid-carousel .book-card {
+    flex: 0 0 65%;
+    min-width: 65%;
+    max-width: 65%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
+
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .carousel-btn-prev {
+    left: 0.5rem;
+  }
+
+  .carousel-btn-next {
+    right: 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .book-grid {
+  .book-grid:not(.book-grid-carousel) {
     grid-template-columns: repeat(1, 1fr);
     padding: 1rem;
+  }
+
+  .book-grid.book-grid-carousel .book-card {
+    flex: 0 0 calc((100% - 14px) / 2);
+    min-width: calc((100% - 14px) / 2);
+    max-width: calc((100% - 14px) / 2);
   }
 }

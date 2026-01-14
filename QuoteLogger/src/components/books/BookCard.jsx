@@ -2,10 +2,10 @@ import "../../styles/books/BookCard.css";
 import { useBooks } from "../../context/BooksContext";
 import { useQuotes } from "../../context/QuotesContext";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import DeleteBookModal from "./DeleteBookModal";
 
-function BookCard({ book }) {
+function BookCard({ book, isCenter = false }) {
 
     const { addBook, removeBook, isBookSaved } = useBooks();
     const { quotes, getBookKey, removeAllQuotesForBook } = useQuotes();
@@ -13,22 +13,13 @@ function BookCard({ book }) {
     const navigate = useNavigate();
     const location = useLocation();
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const overlayEnabledRef = useRef(false);
+    const enableTimeoutRef = useRef(null);
 
     const bookKey = getBookKey(book);
     const quoteCount = quotes[bookKey]?.length || 0;
     const isHomePage = location.pathname === "/";
 
-    function handleAddBookClick() {
-        if (saved) {
-            if (quoteCount > 0) {
-                setShowDeleteModal(true);
-            } else {
-                removeBook(book);
-            }
-        } else {
-            addBook(book);
-        }
-    }
 
     function handleConfirmDelete() {
         removeAllQuotesForBook(book);
@@ -41,8 +32,34 @@ function BookCard({ book }) {
     }
 
     function handleAddQuoteClick() {
+        if (!overlayEnabledRef.current) return;
         if (!saved) addBook(book);
         navigate("/quotes", { state: { book, openAddQuote: true } });
+    }
+
+    function handleAddBookClick() {
+        if (!overlayEnabledRef.current) return;
+        if (saved) {
+            if (quoteCount > 0) {
+                setShowDeleteModal(true);
+            } else {
+                removeBook(book);
+            }
+        } else {
+            addBook(book);
+        }
+    }
+
+    function handleMouseEnter() {
+        clearTimeout(enableTimeoutRef.current);
+        enableTimeoutRef.current = setTimeout(() => {
+            overlayEnabledRef.current = true;
+        }, 200); // Enable after 200ms delay
+    }
+
+    function handleMouseLeave() {
+        clearTimeout(enableTimeoutRef.current);
+        overlayEnabledRef.current = false;
     }
 
     if (!book) {
@@ -55,7 +72,11 @@ function BookCard({ book }) {
 
   return (
     <>
-      <div className="book-card">
+      <div 
+        className={`book-card ${isCenter ? "book-card-center" : "book-card-side"}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         {saved && isHomePage && (
           <div className="saved-indicator" title="Added to your list">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

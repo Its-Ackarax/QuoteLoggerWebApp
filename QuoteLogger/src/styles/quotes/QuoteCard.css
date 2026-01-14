@@ -7,6 +7,10 @@
   transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .quote-card::before {
@@ -40,6 +44,9 @@
   font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
   font-size: 0.95rem;
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .quote-page {
@@ -79,6 +86,9 @@
   font-family: 'Libre Baskerville', Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
   font-size: 0.9rem;
   line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .quote-actions {
@@ -128,4 +138,49 @@
   border-color: rgba(183, 63, 63, 0.3);
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(183, 63, 63, 0.2);
+}
+
+@media (max-width: 640px) {
+  .quote-card {
+    padding: 0.875rem 1rem;
+  }
+
+  .quote-card blockquote {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding-left: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .quote-page {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .quote-reflection {
+    padding: 0.6rem 0.75rem;
+    margin-top: 0.625rem;
+  }
+
+  .quote-reflection-label {
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .quote-reflection-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .quote-actions {
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    padding-top: 0.4rem;
+  }
+
+  .edit-quote-btn,
+  .delete-quote-btn {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.85rem;
+  }
 }

@@ -15,6 +15,7 @@ function QuotesPage() {
   const { books } = useBooks();
   const location = useLocation();
   const navigate = useNavigate();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const savedKeys = books.map(getBookKey);
   const quoteKeys = Object.keys(quotes);
@@ -125,17 +126,37 @@ function QuotesPage() {
     updateQuote({ title, author }, quoteId, quoteData);
   }
 
+  const handleSelectBook = (key) => {
+    setSelectedBookKey(key);
+    setSidebarOpen(false); // Close sidebar on mobile when book is selected
+  };
+
   return (
     <div className="quotes-layout">
+      {sidebarOpen && (
+        <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)} />
+      )}
       <QuotesSidebar
         bookKeys={bookKeys}
         quotes={quotes}
         selectedBookKey={selectedBookKey}
-        setSelectedBookKey={setSelectedBookKey}
+        setSelectedBookKey={handleSelectBook}
         books={books}
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
       />
 
       <main className="quotes-panel">
+        <button 
+          className="sidebar-toggle-btn"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          aria-label="Toggle books list"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          </svg>
+          <span>Books</span>
+        </button>
         {!books.length ? (
           <p>You must first add books to add quotes</p>
         ) : (
