@@ -123,6 +123,10 @@ body.books-page-no-scroll {
   grid-template-columns: repeat(auto-fit, minmax(290px, 290px));
 }
 
+.books-page .book-cover {
+  max-height: none;
+}
+
 .books-page .book-card .book-info {
   padding-bottom: 0.5rem;
 }
