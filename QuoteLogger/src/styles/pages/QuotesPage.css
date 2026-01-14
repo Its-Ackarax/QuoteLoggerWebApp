@@ -129,7 +129,8 @@
 @media (max-width: 640px) {
   body.quotes-sidebar-open {
     overflow: hidden;
-    touch-action: none;
+    position: fixed;
+    width: 100%;
   }
 
   .quotes-layout {
@@ -157,6 +158,12 @@
   .quotes-layout.sidebar-active .quotes-panel {
     pointer-events: none;
     overflow: hidden;
+  }
+
+  .quotes-layout.sidebar-active {
+    height: calc(100vh - 80px);
+    overflow: hidden;
+    overscroll-behavior: none;
   }
 
   .sidebar-toggle-btn {
