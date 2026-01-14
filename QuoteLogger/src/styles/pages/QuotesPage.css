@@ -127,6 +127,7 @@
 }
 
 @media (max-width: 640px) {
+  html.quotes-sidebar-open,
   body.quotes-sidebar-open {
     overflow: hidden;
     position: fixed;

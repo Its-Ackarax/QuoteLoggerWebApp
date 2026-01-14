@@ -88,11 +88,21 @@ function QuotesPage() {
   }, [selectedBookKey]);
 
   useEffect(() => {
+    let scrollY = 0;
     const updateScrollLock = () => {
-      if (sidebarOpen && window.innerWidth <= 640) {
+      const isMobile = window.innerWidth <= 640;
+      if (sidebarOpen && isMobile) {
+        scrollY = window.scrollY || window.pageYOffset || 0;
         document.body.classList.add("quotes-sidebar-open");
+        document.body.style.top = `-${scrollY}px`;
+        document.documentElement.classList.add("quotes-sidebar-open");
       } else {
         document.body.classList.remove("quotes-sidebar-open");
+        document.body.style.top = "";
+        document.documentElement.classList.remove("quotes-sidebar-open");
+        if (scrollY) {
+          window.scrollTo(0, scrollY);
+        }
       }
     };
 
@@ -101,6 +111,11 @@ function QuotesPage() {
     return () => {
       window.removeEventListener("resize", updateScrollLock);
       document.body.classList.remove("quotes-sidebar-open");
+      document.body.style.top = "";
+      document.documentElement.classList.remove("quotes-sidebar-open");
+      if (scrollY) {
+        window.scrollTo(0, scrollY);
+      }
     };
   }, [sidebarOpen]);
 
