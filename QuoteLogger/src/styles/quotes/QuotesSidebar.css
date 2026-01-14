@@ -226,11 +226,11 @@
 @media (max-width: 640px) {
   .quotes-sidebar {
     position: fixed;
-    top: 80px;
+    top: 108px;
     left: 0;
     width: 85%;
     max-width: 320px;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 108px);
     z-index: 999;
     border-right: 3px solid var(--border-color);
     transform: translateX(-100%);

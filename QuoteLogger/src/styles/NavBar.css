@@ -132,4 +132,8 @@
     .menu-buttons.desktop { display: none; }
     .theme-toggle-desktop-wrapper { display: none; }
     .hamburger { display: inline-block; }
+
+    body.quotes-sidebar-open .navbar {
+        pointer-events: none;
+    }
 }

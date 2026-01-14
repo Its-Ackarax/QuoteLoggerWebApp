@@ -127,6 +127,11 @@
 }
 
 @media (max-width: 640px) {
+  body.quotes-sidebar-open {
+    overflow: hidden;
+    touch-action: none;
+  }
+
   .quotes-layout {
     grid-template-columns: 1fr;
     height: auto;
@@ -141,12 +146,17 @@
   .sidebar-overlay {
     display: block;
     position: fixed;
-    top: 80px;
+    top: 108px;
     left: 0;
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 998;
+  }
+
+  .quotes-layout.sidebar-active .quotes-panel {
+    pointer-events: none;
+    overflow: hidden;
   }
 
   .sidebar-toggle-btn {

@@ -87,6 +87,23 @@ function QuotesPage() {
     setShowAddForm(false);
   }, [selectedBookKey]);
 
+  useEffect(() => {
+    const updateScrollLock = () => {
+      if (sidebarOpen && window.innerWidth <= 640) {
+        document.body.classList.add("quotes-sidebar-open");
+      } else {
+        document.body.classList.remove("quotes-sidebar-open");
+      }
+    };
+
+    updateScrollLock();
+    window.addEventListener("resize", updateScrollLock);
+    return () => {
+      window.removeEventListener("resize", updateScrollLock);
+      document.body.classList.remove("quotes-sidebar-open");
+    };
+  }, [sidebarOpen]);
+
   const selectedQuotes = selectedBookKey
     ? [...(quotes[selectedBookKey] || [])].sort((a, b) => {
         if (!a.page && !b.page) return 0;
@@ -132,7 +149,7 @@ function QuotesPage() {
   };
 
   return (
-    <div className="quotes-layout">
+    <div className={`quotes-layout ${sidebarOpen ? "sidebar-active" : ""}`}>
       {sidebarOpen && (
         <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)} />
       )}

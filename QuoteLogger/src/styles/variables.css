@@ -30,6 +30,16 @@
   --bg-reflection: rgba(227, 222, 214, 0.6);
 }
 
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
 [data-palette="warmOat"] {
   --bg-primary: #F1E6D2;
   --bg-secondary: #F4D9C6;
