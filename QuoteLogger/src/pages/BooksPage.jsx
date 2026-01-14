@@ -1,9 +1,27 @@
+import { useEffect } from "react";
 import { useBooks } from "../context/BooksContext";
 import BookGrid from "../components/books/BookGrid";
 import "../styles/pages/BooksPage.css";
 
 function BooksPage() {
   const { books } = useBooks();
+
+  useEffect(() => {
+    const updateScrollLock = () => {
+      if (window.innerWidth <= 640) {
+        document.body.classList.add("books-page-no-scroll");
+      } else {
+        document.body.classList.remove("books-page-no-scroll");
+      }
+    };
+
+    updateScrollLock();
+    window.addEventListener("resize", updateScrollLock);
+    return () => {
+      window.removeEventListener("resize", updateScrollLock);
+      document.body.classList.remove("books-page-no-scroll");
+    };
+  }, []);
 
   return (
     <div className="books-page">
