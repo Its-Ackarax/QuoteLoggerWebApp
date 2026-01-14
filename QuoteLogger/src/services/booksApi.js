@@ -11,6 +11,7 @@ export async function searchBooks(query) {
     const info = item.volumeInfo;
 
     return {
+      bookId: item.id,
       title: info.title ?? "Untitled",
       author: info.authors ? info.authors.join(", ") : "Unknown Author",
       url: info.imageLinks?.thumbnail ?? null
@@ -32,6 +33,7 @@ export async function getPopularBooks() {
 
   return data.results.books.map((book) => {
     return {
+      bookId: book.primary_isbn13 || book.primary_isbn10 || `${book.title}|${book.author}`,
       title: book.title ?? "Untitled",
       author: book.author ?? "Unknown Author",
       url: book.book_image ?? null,

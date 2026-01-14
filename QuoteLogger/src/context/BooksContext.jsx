@@ -26,10 +26,14 @@ export function BooksProvider({ children }) {
     localStorage.setItem("savedBooks", JSON.stringify(books));
   }, [books, hasLoaded]);
 
+  function getBookIdentity(book) {
+    return book.bookId ?? `${book.title}|${book.author}|${book.url ?? ""}`;
+  }
+
   function addBook(book) {
     setBooks((prev) => {
       const exists = prev.some(
-        (b) => b.title === book.title && b.author === book.author
+        (b) => getBookIdentity(b) === getBookIdentity(book)
       );
       return exists ? prev : [...prev, book];
     });
@@ -38,14 +42,14 @@ export function BooksProvider({ children }) {
   function removeBook(book) {
     setBooks((prev) =>
       prev.filter(
-        (b) => !(b.title === book.title && b.author === book.author)
+        (b) => getBookIdentity(b) !== getBookIdentity(book)
       )
     );
   }
 
   function isBookSaved(book) {
     return books.some(
-      (b) => b.title === book.title && b.author === book.author
+      (b) => getBookIdentity(b) === getBookIdentity(book)
     );
   }
 
