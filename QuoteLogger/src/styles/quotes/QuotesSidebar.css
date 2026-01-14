@@ -251,6 +251,10 @@
     touch-action: pan-y;
   }
 
+  .quotes-sidebar ul {
+    padding-bottom: 5rem;
+  }
+
   .quotes-sidebar-header {
     margin-bottom: 1rem;
     padding-bottom: 0.75rem;
